@@ -1,11 +1,14 @@
 {
   "name": "modsenFilms",
+  "homepage": "https://repmacrypn.github.io/modsenFilms",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack serve --mode development"
+    "start": "webpack serve --mode development",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "react": "18.2.0",
@@ -33,6 +36,7 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
+    "gh-pages": "^6.0.0",
     "html-webpack-plugin": "5.5.1",
     "prettier": "2.8.8",
     "ts-loader": "9.4.2",
