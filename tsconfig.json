@@ -20,12 +20,8 @@
     "target": "es5",
     "jsx": "react-jsx",
     "allowJs": true,
-    "moduleResolution": "node",
+    "moduleResolution": "node"
   },
-  "include": [
-    "src",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": ["node_modules", "build"],
+  "include": ["src", "**/*.ts", "**/*.tsx", "declare.d.ts"],
+  "exclude": ["node_modules", "build"]
 }
