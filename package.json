@@ -1,5 +1,5 @@
 {
-  "name": "modsenFilms",
+  "name": "films-app",
   "homepage": "https://repmacrypn.github.io/modsenFilms",
   "version": "1.0.0",
   "main": "index.js",
@@ -25,7 +25,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "serve": "14.2.0",
-    "styled-components": "^5.3.10"
+    "styled-components": "^5.3.10",
+    "tabler-icons-react": "^1.56.0"
   },
   "devDependencies": {
     "@babel/core": "7.21.8",

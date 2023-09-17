@@ -1,7 +1,12 @@
+import {Header} from '../Header/index'
+
+import {GlobalStyles} from './styled'
+
 export const App = () => {
   return (
     <div>
-      qq
+      <GlobalStyles />
+      <Header />
     </div>
   )
 }
