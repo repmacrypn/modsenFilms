@@ -1,9 +1,10 @@
-import {createGlobalStyle} from 'styled-components'
+import styled, {createGlobalStyle} from 'styled-components'
 
 export const GlobalStyles = createGlobalStyle`
   html,body{
     height: 100%;
     width: 100%;
+
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -16,4 +17,9 @@ export const GlobalStyles = createGlobalStyle`
     background-color: white;
     color: black;
   }
+`
+
+export const Container = styled.div`
+  max-width: 1440px;
+  margin: 0 auto;
 `

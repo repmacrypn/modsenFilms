@@ -1,12 +1,14 @@
-import {Header} from '../Header/index'
+import {Header} from '@/components/Header/index'
+import {Main} from '@/components/Main/index'
 
-import {GlobalStyles} from './styled'
+import {GlobalStyles, Container} from './styled'
 
 export const App = () => {
   return (
-    <div>
+    <Container>
       <GlobalStyles />
       <Header />
-    </div>
+      <Main />
+    </Container>
   )
 }
