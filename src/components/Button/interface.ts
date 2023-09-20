@@ -1,4 +1,9 @@
+import {ReactNode} from 'react'
+
 export interface IButton {
   callBack: () => void
-  text: string
+  type: ButtonType
+  children: ReactNode
 }
+
+type ButtonType = 'searchButton' | 'categoriesButton' | 'showMoreButton'
