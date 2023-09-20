@@ -30,20 +30,3 @@ export const InputItem = styled.input`
     outline: none;
   }
 `
-
-export const ButtonItem = styled.button`
-  flex-basis: 59px;
-  height: 100%;
-  border: 1px solid #c4c4c4;
-  background-color: white;
-  transition: all 0.3s ease;
-
-  &:active {
-    transform: translateY(0.0625rem);
-  }
-
-  &:hover {
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.06);
-  }
-`

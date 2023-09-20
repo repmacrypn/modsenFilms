@@ -7,7 +7,9 @@ export const Genres = () => {
   return (
     <GenresWrapper>
       {genres.map((g) => (
-        <Button key={g.id} text={g.value} callBack={() => alert('qq')} />
+        <Button type='categoriesButton' key={g.id} callBack={() => alert('qq')}>
+          {g.value}
+        </Button>
       ))}
     </GenresWrapper>
   )

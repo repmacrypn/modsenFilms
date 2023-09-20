@@ -1,14 +1,16 @@
 import {Search} from 'tabler-icons-react'
 
-import {ButtonItem, Container, InputItem} from './styled'
+import {Button} from '@/components/Button/index'
+
+import {Container, InputItem} from './styled'
 
 export const SearchField = () => {
   return (
     <Container>
       <InputItem placeholder='Search' />
-      <ButtonItem>
+      <Button callBack={() => console.log('qq')} type='searchButton'>
         <Search width={17} height={16} strokeWidth={2} />
-      </ButtonItem>
+      </Button>
     </Container>
   )
 }
