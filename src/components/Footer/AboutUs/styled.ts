@@ -27,7 +27,7 @@ export const Link = styled.a.attrs({
 })`
   display: block;
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.83);
+  color: ${(props) => props.theme.colors.fontLink};
   font-size: 20px;
   font-weight: 500;
   transition: all 0.3s ease;

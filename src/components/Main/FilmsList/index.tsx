@@ -31,7 +31,7 @@ export const FilmsList = () => {
           </FilmCard>
         ))}
       </Container>
-      <Button callBack={() => alert('show motre button!!!')} type='showMoreButton'>
+      <Button callBack={() => console.log('show motre button!!!')} type='showMoreButton'>
         Show More
       </Button>
     </>

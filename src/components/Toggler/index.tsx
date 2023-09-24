@@ -18,7 +18,7 @@ export const Toggler = () => {
 
   return (
     <Container onClick={handleToggleChange}>
-      <ToggleItem theme={theme} />
+      <ToggleItem themeValue={theme} />
     </Container>
   )
 }

@@ -22,7 +22,6 @@ export const LogoWrapper = styled.div`
 `
 
 export const LogoTitle = styled.div`
-  transition: all 0.3s ease;
   font-weight: 700;
   font-size: 18px;
 `

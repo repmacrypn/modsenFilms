@@ -5,8 +5,10 @@ export const CategoriesButton = styled.button<{isActive: boolean}>`
   border-radius: 15px;
   border: 1px solid;
   border-color: ${({isActive}) => (isActive ? '#000000' : 'rgba(0, 0, 0, 0.1)')};
-  background-color: ${({isActive}) => (isActive ? '#000000' : 'rgba(0, 0, 0, 0.06)')};
-  color: ${({isActive}) => (isActive ? '#F8F8F8' : '#000000')};
+  background-color: ${({isActive, theme}) =>
+    isActive ? theme.colors.categButBackColorActive : theme.colors.categButBackColor};
+  color: ${({isActive, theme}) =>
+    isActive ? theme.colors.categButFontActive : theme.colors.categButFont};
   cursor: ${({isActive}) => (isActive ? 'default' : 'pointer')};
   text-align: center;
   font-family: 'Roboto', sans-serif;
@@ -22,7 +24,7 @@ export const CategoriesButton = styled.button<{isActive: boolean}>`
     !isActive &&
     css`
       &:hover {
-        background: #c4c4c4;
+        background: ${(props) => props.theme.colors.categButBackColorHover};
       }
     `}
 `
@@ -30,8 +32,9 @@ export const CategoriesButton = styled.button<{isActive: boolean}>`
 export const SearchButton = styled.button`
   flex-basis: 59px;
   height: 100%;
-  border: 1px solid #c4c4c4;
-  background-color: white;
+  border: 1px solid;
+  border-color: ${(props) => props.theme.colors.borderColor};
+  background-color: ${(props) => props.theme.colors.searchButBackColor};
   transition: all 0.3s ease;
 
   &:active {
@@ -40,7 +43,8 @@ export const SearchButton = styled.button`
 
   &:hover {
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.06);
+    background-color: ${(props) => props.theme.colors.searchButBackColorHover};
+    border-color: ${(props) => props.theme.colors.borderColorHover};
   }
 `
 
@@ -61,11 +65,12 @@ export const ShowMoreButton = styled.button`
 
   &:active {
     transform: scale(0.9);
+    border-radius: 25px;
   }
 
   &:hover {
     cursor: pointer;
-    opacity: 0.8;
+    opacity: 0.9;
   }
 
   @media (max-width: 480px) {

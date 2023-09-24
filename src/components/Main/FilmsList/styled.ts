@@ -1,23 +1,36 @@
 import styled from 'styled-components'
 
 export const Container = styled.section`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(267px, 1fr));
+  grid-gap: 20px;
+  justify-items: center;
   padding: 28px 13px 10px;
+
+  @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 export const FilmCard = styled.div`
   max-width: 332px;
   max-height: 283px;
+
+  &:hover {
+    box-shadow: 0px 4px 20px ${(props) => props.theme.colors.boxShadow};
+    transform: scale(1.05);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
 `
 
 export const FilmImage = styled.img`
-  object-fit: contain;
   width: 100%;
   max-height: 186px;
 `
+
 export const FilmInfoWrapper = styled.div`
   display: flex;
   gap: 12px;
@@ -32,10 +45,14 @@ export const AvatarPhoto = styled.img`
 `
 
 export const FilmName = styled.div`
+  max-width: 284px;
   padding: 12px 0 4px;
+  overflow-wrap: break-word;
   font-size: 16px;
 `
 
 export const FilmAuthorYear = styled.div`
+  max-width: 284px;
+  overflow-wrap: break-word;
   font-size: 14px;
 `
