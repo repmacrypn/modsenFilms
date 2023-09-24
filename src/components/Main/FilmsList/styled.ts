@@ -17,12 +17,12 @@ export const Container = styled.section`
 export const FilmCard = styled.div`
   max-width: 332px;
   max-height: 283px;
+  transition: all 0.3s ease;
 
   &:hover {
     box-shadow: 0px 4px 20px ${(props) => props.theme.colors.boxShadow};
     transform: scale(1.05);
     cursor: pointer;
-    transition: all 0.3s ease;
   }
 `
 

@@ -3,7 +3,7 @@ import styled, {createGlobalStyle} from 'styled-components'
 import {ITheme} from '@/types/theme.interface'
 
 export const GlobalStyles = createGlobalStyle<{theme: ITheme}>`
-  html,body{
+  html, body {
     height: 100%;
     width: 100%;
     padding: 0;
@@ -16,7 +16,12 @@ export const GlobalStyles = createGlobalStyle<{theme: ITheme}>`
     line-height: 1;
     border: 0;
     background-color: ${(props) => props.theme.colors.mainBackColor};
-  color: ${(props) => props.theme.colors.mainFont};
+    color: ${(props) => props.theme.colors.mainFont};
+  }
+
+  input[type='text'] {
+    -webkit-appearance: none !important;
+    border-radius: 0;
   }
 `
 
