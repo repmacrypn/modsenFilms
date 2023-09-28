@@ -1,15 +1,17 @@
+import {ReactNode} from 'react'
+
 import {Button} from '@/components/Button'
 
-import {Text, Container} from './styled'
+import {ErrorText, Container} from './styled'
 
-export const ErrorFallback = () => {
+export const ErrorFallback = ({children}: {children: ReactNode}) => {
   const handlerClick = () => {
     location.reload()
   }
 
   return (
     <Container>
-      <Text>Something went wrong, please reload the page...</Text>
+      <ErrorText>{children}</ErrorText>
       <Button type='showMoreButton' callBack={handlerClick}>
         Reload page
       </Button>

@@ -11,7 +11,7 @@ export const Container = styled.article`
   transform: translate(-50%, -50%);
 `
 
-export const Text = styled.p`
+export const ErrorText = styled.p`
   font-size: 24px;
   text-align: center;
   line-height: 150%;

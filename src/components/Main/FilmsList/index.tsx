@@ -1,6 +1,8 @@
-import filmImage from '@/assets/images/FilmImage.png'
-import avatarPhoto from '@/assets/images/AvatarPhoto.png'
+import noPosterImage from '@/assets/images/noPosterImage.png'
+import noPosterPreview from '@/assets/images/noPosterPreview.png'
 import {Button} from '@/components/Button'
+import {useFetchFilmsQuery} from '@/store/services/filmsService'
+import {ErrorText} from '@/components/ErrorBoundary/ErrorFallback/styled'
 
 import {
   AvatarPhoto,
@@ -13,19 +15,48 @@ import {
 } from './styled'
 
 export const FilmsList = () => {
-  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+  const {data: films, isLoading, error} = useFetchFilmsQuery()
+
+  if (isLoading) return <div>Loading...</div>
+
+  if (error && error.code === 'ERR_NETWORK') {
+    return (
+      <ErrorText>
+        Unable to load movies. Please try to turn on VPN and reload the page
+      </ErrorText>
+    )
+  }
 
   return (
     <>
+      {!error && films?.results.length === 0 && !isLoading && (
+        <ErrorText>There is no movies</ErrorText>
+      )}
       <Container>
-        {arr.map((i) => (
-          <FilmCard key={i}>
-            <FilmImage alt='film preview' src={filmImage} />
+        {films?.results.map((f) => (
+          <FilmCard key={f.id}>
+            <FilmImage
+              alt='film preview'
+              src={
+                f.backdrop_path
+                  ? `https://image.tmdb.org/t/p/w780${f.backdrop_path}`
+                  : noPosterImage
+              }
+            />
             <FilmInfoWrapper>
-              <AvatarPhoto alt='avatar' src={avatarPhoto} />
+              <AvatarPhoto
+                alt='avatar'
+                src={
+                  f.backdrop_path
+                    ? `https://image.tmdb.org/t/p/w780${f.backdrop_path}`
+                    : noPosterPreview
+                }
+              />
               <div>
-                <FilmName>The Shawshank Redemption</FilmName>
-                <FilmAuthorYear>Stephen King • 1994</FilmAuthorYear>
+                <FilmName>{f.title || "Film Name wasn't found"}</FilmName>
+                <FilmAuthorYear>
+                  Rating: {f.vote_average} • {f.release_date.slice(0, 4)}
+                </FilmAuthorYear>
               </div>
             </FilmInfoWrapper>
           </FilmCard>

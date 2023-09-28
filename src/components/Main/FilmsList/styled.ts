@@ -15,6 +15,7 @@ export const Container = styled.section`
 `
 
 export const FilmCard = styled.div`
+  width: 100%;
   max-width: 332px;
   max-height: 283px;
   transition: all 0.3s ease;
@@ -27,6 +28,7 @@ export const FilmCard = styled.div`
 `
 
 export const FilmImage = styled.img`
+  object-fit: cover;
   width: 100%;
   max-height: 186px;
 `
@@ -42,6 +44,9 @@ export const AvatarPhoto = styled.img`
   width: 36px;
   height: 36px;
   border-radius: 50%;
+  object-fit: cover;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
 `
 
 export const FilmName = styled.div`
