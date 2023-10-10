@@ -1,18 +1,18 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 
 import {Film} from '@/types/films'
-import {Genres} from '@/types/genres.interface'
+import {GenreValue} from '@/types/genres.interface'
 
 interface InitialState {
   films: Film[]
   title: string
-  genre: Genres
+  genre: GenreValue
   page: number
 }
 
 const initialState: InitialState = {
   films: [] as Film[],
-  genre: Genres.All,
+  genre: 'All',
   title: '',
   page: 1
 }
@@ -24,7 +24,7 @@ export const filmsSlice = createSlice({
     addFilms: (state, action: PayloadAction<Film[]>) => {
       state.films = state.films.concat(action.payload)
     },
-    setGenre: (state, action: PayloadAction<Genres>) => {
+    setGenre: (state, action: PayloadAction<GenreValue>) => {
       state.genre = action.payload
     },
     setTitle: (state, action: PayloadAction<string>) => {
@@ -32,10 +32,19 @@ export const filmsSlice = createSlice({
     },
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload
+    },
+    clearFilters: (state, action: PayloadAction<boolean>) => {
+      state.films = initialState.films
+      state.title = initialState.title
+      state.page = initialState.page
+
+      if (action.payload) {
+        state.genre = initialState.genre
+      }
     }
   }
 })
 
-export const {setGenre, setTitle, setPage, addFilms} = filmsSlice.actions
+export const {setGenre, setTitle, setPage, addFilms, clearFilters} = filmsSlice.actions
 
 export const filmsReducer = filmsSlice.reducer

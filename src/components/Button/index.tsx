@@ -12,7 +12,7 @@ export const Button = ({callBack, type, children, isActive}: IButton) => {
     }
     case 'categoriesButton': {
       button = (
-        <CategoriesButton isActive={false} onClick={() => console.log('qq')}>
+        <CategoriesButton isActive={!!isActive} onClick={callBack}>
           {children}
         </CategoriesButton>
       )

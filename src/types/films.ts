@@ -1,4 +1,4 @@
-import {Genres} from '@/types/genres.interface'
+import {GenreValue} from '@/types/genres.interface'
 
 export interface FilmsResponse {
   total_pages: number
@@ -25,5 +25,5 @@ export interface Film {
 
 export interface FilmQueryParams {
   page: number
-  genre: Genres
+  genre: GenreValue
 }

@@ -8,3 +8,5 @@ export enum Genres {
   Romance = 10749,
   Horror = 27
 }
+
+export type GenreValue = keyof typeof Genres
