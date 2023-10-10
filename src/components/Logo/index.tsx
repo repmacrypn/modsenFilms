@@ -1,10 +1,24 @@
 import youtube from '@/assets/images/youtube.png'
+import {useAppDispatch, useAppSelector} from '@/hooks/useAppHooks'
+import {clearFilters} from '@/store/slice/filmsSlice'
+import {selectGenre} from '@/store/selectors/filmsSelectors'
 
 import {LogoImage, LogoTitle, LogoWrapper} from './styled'
+import {Genres} from '@/types/genres.interface'
 
 export const Logo = () => {
+  const dispatch = useAppDispatch()
+
+  const genre = useAppSelector(selectGenre)
+
+  const handleLogoClick = () => {
+    if (genre !== 'All') {
+      dispatch(clearFilters())
+    }
+  }
+
   return (
-    <LogoWrapper>
+    <LogoWrapper onClick={handleLogoClick}>
       <LogoImage alt='logo' src={youtube} />
       <LogoTitle>ModsenFilms</LogoTitle>
     </LogoWrapper>

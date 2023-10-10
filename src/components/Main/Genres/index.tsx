@@ -15,7 +15,7 @@ export const Genres = () => {
 
   const handleButtonClick = (currentGenre: GenreValue) => {
     if (genre !== currentGenre) {
-      dispatch(clearFilters(false))
+      dispatch(clearFilters())
       dispatch(setGenre(currentGenre))
     }
   }

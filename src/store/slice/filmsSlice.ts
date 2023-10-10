@@ -33,14 +33,11 @@ export const filmsSlice = createSlice({
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload
     },
-    clearFilters: (state, action: PayloadAction<boolean>) => {
-      state.films = initialState.films
+    clearFilters: (state) => {
       state.title = initialState.title
       state.page = initialState.page
-
-      if (action.payload) {
-        state.genre = initialState.genre
-      }
+      state.films = initialState.films
+      state.genre = initialState.genre
     }
   }
 })
