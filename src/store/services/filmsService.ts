@@ -1,6 +1,6 @@
 import {createApi} from '@reduxjs/toolkit/query/react'
 
-import {FilmsResponse} from '@/types/films'
+import {FilmQueryParams, FilmsResponse} from '@/types/films'
 import {axiosBaseQuery} from '@/store/services/config/axiosConfig'
 
 export const filmsApi = createApi({
@@ -9,12 +9,13 @@ export const filmsApi = createApi({
   /* keepUnusedDataFor: , */
   baseQuery: axiosBaseQuery,
   endpoints: (builder) => ({
-    fetchFilms: builder.query<FilmsResponse, void>({
-      query: () => ({
+    fetchFilms: builder.query<FilmsResponse, FilmQueryParams>({
+      query: ({page, genre}) => ({
         method: 'GET',
         url: 'discover/movie',
         params: {
-          page: 1,
+          page,
+          with_genres: genre,
           include_video: true
         }
       }),

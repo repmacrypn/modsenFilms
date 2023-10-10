@@ -1,11 +1,8 @@
-import {useState} from 'react'
-
 import {IButton} from './interface'
 
 import {CategoriesButton, SearchButton, ShowMoreButton} from './styled'
 
-export const Button = ({callBack, type, children}: IButton) => {
-  const [isActive, setIsActive] = useState(false)
+export const Button = ({callBack, type, children, isActive}: IButton) => {
   let button
 
   switch (type) {
@@ -15,14 +12,18 @@ export const Button = ({callBack, type, children}: IButton) => {
     }
     case 'categoriesButton': {
       button = (
-        <CategoriesButton isActive={isActive} onClick={() => setIsActive(!isActive)}>
+        <CategoriesButton isActive={false} onClick={() => console.log('qq')}>
           {children}
         </CategoriesButton>
       )
       break
     }
     case 'showMoreButton': {
-      button = <ShowMoreButton onClick={callBack}>{children}</ShowMoreButton>
+      button = (
+        <ShowMoreButton disabled={isActive} onClick={callBack}>
+          {children}
+        </ShowMoreButton>
+      )
       break
     }
     default:

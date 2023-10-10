@@ -73,6 +73,16 @@ export const ShowMoreButton = styled.button`
     opacity: 0.9;
   }
 
+  &:disabled {
+    background-color: green;
+  }
+
+  /* ${({disabled}) =>
+    !disabled &&
+    css`
+      background-color: green;
+    `} */
+
   @media (max-width: 480px) {
     font-size: 16px;
     border-radius: 12px;

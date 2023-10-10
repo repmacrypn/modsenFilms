@@ -1,8 +1,13 @@
+import {useEffect} from 'react'
+
 import noPosterImage from '@/assets/images/noPosterImage.png'
 import noPosterPreview from '@/assets/images/noPosterPreview.png'
 import {Button} from '@/components/Button'
 import {useFetchFilmsQuery} from '@/store/services/filmsService'
 import {ErrorText} from '@/components/ErrorBoundary/ErrorFallback/styled'
+import {useAppDispatch, useAppSelector} from '@/hooks/useAppHooks'
+import {selectFilms, selectGenre, selectPage} from '@/store/selectors/filmsSelectors'
+import {addFilms, setPage} from '@/store/slice/filmsSlice'
 
 import {
   AvatarPhoto,
@@ -15,14 +20,32 @@ import {
 } from './styled'
 
 export const FilmsList = () => {
-  const {data: films, isLoading, error} = useFetchFilmsQuery()
+  const dispatch = useAppDispatch()
+
+  const page = useAppSelector(selectPage)
+  const genre = useAppSelector(selectGenre)
+  const filmsList = useAppSelector(selectFilms)
+
+  const {data: films, isLoading, isFetching, error} = useFetchFilmsQuery({page, genre})
+
+  useEffect(() => {
+    const currentFilms = films?.results
+
+    if (currentFilms) {
+      dispatch(addFilms(currentFilms))
+    }
+  }, [films, dispatch])
+
+  const handleButtonClick = () => {
+    dispatch(setPage(page + 1))
+  }
 
   if (isLoading) return <div>Loading...</div>
 
   if (error && error.code === 'ERR_NETWORK') {
     return (
       <ErrorText>
-        Unable to load movies. Please try to turn on VPN and reload the page
+        Unable to load films. Please try to turn on VPN and reload the page
       </ErrorText>
     )
   }
@@ -30,10 +53,10 @@ export const FilmsList = () => {
   return (
     <>
       {!error && films?.results.length === 0 && !isLoading && (
-        <ErrorText>There is no movies</ErrorText>
+        <ErrorText>There are no films</ErrorText>
       )}
       <Container>
-        {films?.results.map((f) => (
+        {filmsList.map((f) => (
           <FilmCard key={f.id}>
             <FilmImage
               alt='film preview'
@@ -62,7 +85,16 @@ export const FilmsList = () => {
           </FilmCard>
         ))}
       </Container>
-      <Button callBack={() => console.log('show motre button!!!')} type='showMoreButton'>
+      <Button
+        isActive={
+          isLoading ||
+          isFetching ||
+          films?.total_pages === page ||
+          films?.results.length === 0
+        }
+        callBack={handleButtonClick}
+        type='showMoreButton'
+      >
         Show More
       </Button>
     </>

@@ -1,3 +1,5 @@
+import {Genres} from '@/types/genres.interface'
+
 export interface FilmsResponse {
   total_pages: number
   total_results: number
@@ -19,4 +21,9 @@ export interface Film {
   video: boolean
   vote_average: number
   vote_count: number
+}
+
+export interface FilmQueryParams {
+  page: number
+  genre: Genres
 }

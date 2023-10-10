@@ -1,7 +1,7 @@
 export enum Genres {
   Action = 28,
   Adventure = 12,
-  All = 0,
+  All = '',
   Crime = 80,
   Drama = 18,
   Documentary = 99,
