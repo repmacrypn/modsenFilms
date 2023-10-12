@@ -4,7 +4,6 @@ import {clearFilters} from '@/store/slice/filmsSlice'
 import {selectGenre} from '@/store/selectors/filmsSelectors'
 
 import {LogoImage, LogoTitle, LogoWrapper} from './styled'
-import {Genres} from '@/types/genres.interface'
 
 export const Logo = () => {
   const dispatch = useAppDispatch()

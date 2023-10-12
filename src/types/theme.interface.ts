@@ -20,5 +20,7 @@ export interface ITheme {
     borderColor2: string
     borderColorHover: string
     boxShadow: string
+    skeletonMain: string
+    skeletonShimmer: string
   }
 }

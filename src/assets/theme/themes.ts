@@ -24,7 +24,10 @@ const baseTheme: ITheme = {
     borderColor: '#c4c4c4',
     borderColor2: '#00000030',
     borderColorHover: '#121212',
-    boxShadow: '#383838'
+    boxShadow: '#383838',
+    skeletonMain: '#ededed',
+    skeletonShimmer:
+      'linear-gradient(90deg,rgba(255, 255, 255, 0) 0,rgba(255, 255, 255, 0.2) 20%,rgba(255, 255, 255, 0.5) 60%,rgba(255, 255, 255, 0))'
   }
 }
 
@@ -58,6 +61,9 @@ export const darkTheme: DefaultTheme = {
     borderColor: '#7d7d7d',
     borderColor2: '#6d6e76',
     borderColorHover: 'white',
-    boxShadow: '#c4c4c4'
+    boxShadow: '#c4c4c4',
+    skeletonMain: '#3b3b3b',
+    skeletonShimmer:
+      'linear-gradient(90deg,rgba(20, 20, 20, 0) 0,rgba(20, 20, 20, 0.2) 20%,rgba(20, 20, 20, 0.5) 60%,rgba(20, 20, 20, 0))'
   }
 }
