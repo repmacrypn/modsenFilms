@@ -1,4 +1,4 @@
-import {GenreValue} from '@/types/genres.interface'
+import {GenreValue} from '@/types/genres.enum'
 
 export interface FilmsResponse {
   total_pages: number
