@@ -4,7 +4,7 @@ import {useAppDispatch, useAppSelector} from '@/hooks/useAppHooks'
 import {clearFilters, setGenre} from '@/store/slice/filmsSlice'
 import {selectGenre} from '@/store/selectors/filmsSelectors'
 
-import {GenreValue} from '@/types/genres.interface'
+import {GenreValue} from '@/types/genres.enum'
 
 import {GenresWrapper} from './styled'
 

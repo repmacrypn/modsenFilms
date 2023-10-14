@@ -1,7 +1,7 @@
 import noPosterImage from '@/assets/images/noPosterImage.png'
 import noPosterPreview from '@/assets/images/noPosterPreview.png'
 
-import {Film} from '@/types/films'
+import {IFilmCard} from './interface'
 
 import {
   AvatarPhoto,
@@ -12,9 +12,9 @@ import {
   FilmWrapper
 } from './styled'
 
-export const FilmCard = ({film}: {film: Film}) => {
+export const FilmCard = ({film, handleFilmClick}: IFilmCard) => {
   return (
-    <FilmWrapper>
+    <FilmWrapper onClick={() => handleFilmClick(film.id)}>
       <FilmImage
         alt='film preview'
         src={
