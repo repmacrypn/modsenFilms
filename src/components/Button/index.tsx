@@ -1,6 +1,6 @@
 import {IButton} from './interface'
 
-import {CategoriesButton, SearchButton, ShowMoreButton} from './styled'
+import {CategoriesButton, SearchButton, ShowMoreButton, CloseButton} from './styled'
 
 export const Button = ({callBack, type, children, isActive}: IButton) => {
   let button
@@ -26,6 +26,16 @@ export const Button = ({callBack, type, children, isActive}: IButton) => {
       )
       break
     }
+
+    case 'closeButton': {
+      button = (
+        <CloseButton isActive={!!isActive} onClick={callBack}>
+          {children}
+        </CloseButton>
+      )
+      break
+    }
+
     default:
       button = <button>{children}</button>
   }

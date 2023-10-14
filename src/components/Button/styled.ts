@@ -84,3 +84,37 @@ export const ShowMoreButton = styled.button`
     height: 33.13px;
   }
 `
+
+export const CloseButton = styled.button<{isActive: boolean}>`
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  z-index: 3;
+  border-radius: 50%;
+  border: none;
+  color: black;
+  background-color: #f0f0f0;
+  font-size: 22px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  ${({isActive}) =>
+    isActive &&
+    css`
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    `}
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &:hover {
+    background-color: rgb(213 213 213);
+    cursor: pointer;
+  }
+`

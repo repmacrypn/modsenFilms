@@ -7,4 +7,4 @@ export interface IButton {
   isActive?: boolean
 }
 
-type ButtonType = 'searchButton' | 'categoriesButton' | 'showMoreButton'
+type ButtonType = 'searchButton' | 'categoriesButton' | 'showMoreButton' | 'closeButton'
