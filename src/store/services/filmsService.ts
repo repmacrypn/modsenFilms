@@ -2,7 +2,8 @@ import {createApi} from '@reduxjs/toolkit/query/react'
 
 import {FilmQueryParams, FilmsResponse} from '@/types/films'
 import {axiosBaseQuery} from '@/store/services/config/axiosConfig'
-import {Genres} from '@/types/genres.interface'
+import {Genres} from '@/types/genres.enum'
+import {FilmTrailerResponse} from '@/types/filmTrailer'
 
 export const filmsApi = createApi({
   reducerPath: 'filmsAPI',
@@ -20,8 +21,15 @@ export const filmsApi = createApi({
         }
       }),
       providesTags: ['films']
+    }),
+    fetchFilmTrailer: builder.query<FilmTrailerResponse, number>({
+      query: (filmId) => ({
+        method: 'GET',
+        url: `movie/${filmId}/videos`
+      }),
+      providesTags: (result) => (result ? [{type: 'films', id: result.id}] : ['films'])
     })
   })
 })
 
-export const {useFetchFilmsQuery} = filmsApi
+export const {useFetchFilmsQuery, useFetchFilmTrailerQuery} = filmsApi

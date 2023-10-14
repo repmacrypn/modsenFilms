@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 
 import {Film} from '@/types/films'
-import {GenreValue} from '@/types/genres.interface'
+import {GenreValue} from '@/types/genres.enum'
 
 interface InitialState {
   films: Film[]
