@@ -1,4 +1,4 @@
-import {GenreValue} from '@/types/genres.interface'
+import {GenreValue} from '@/types/genres.enum'
 
 export const genres: IGenre[] = [
   {id: 1, value: 'All'},
