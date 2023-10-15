@@ -12,3 +12,9 @@ export const Container = styled.header`
     padding: 15px;
   }
 `
+
+export const ThemeWrapper = styled.div`
+  @media (max-width: 620px) {
+    display: none;
+  }
+`

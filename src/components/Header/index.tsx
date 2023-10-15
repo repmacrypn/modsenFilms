@@ -1,15 +1,19 @@
 import {SearchField} from '@/components/SearchField/index'
 import {Logo} from '@/components/Logo/index'
 import {Toggler} from '@/components/Toggler/index'
+import {Menu} from '@/components/Menu/index'
 
-import {Container} from './styled'
+import {Container, ThemeWrapper} from './styled'
 
 export const Header = () => {
   return (
     <Container>
       <Logo />
       <SearchField />
-      <Toggler />
+      <ThemeWrapper>
+        <Toggler />
+      </ThemeWrapper>
+      <Menu />
     </Container>
   )
 }
