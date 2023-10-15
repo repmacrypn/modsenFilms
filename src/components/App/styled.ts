@@ -18,11 +18,6 @@ export const GlobalStyles = createGlobalStyle<{theme: ITheme}>`
     background-color: ${(props) => props.theme.colors.mainBackColor};
     color: ${(props) => props.theme.colors.mainFont};
   }
-
-  input[type='text'] {
-    -webkit-appearance: none !important;
-    border-radius: 0;
-  }
 `
 
 export const Container = styled.div`

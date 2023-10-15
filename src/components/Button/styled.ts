@@ -92,7 +92,7 @@ export const CloseButton = styled.button<{isActive: boolean}>`
   right: 10px;
   width: 50px;
   height: 50px;
-  z-index: 3;
+  z-index: 8;
   border-radius: 50%;
   border: none;
   color: black;

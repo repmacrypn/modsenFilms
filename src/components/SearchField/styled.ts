@@ -14,9 +14,13 @@ export const Container = styled.div`
 `
 
 export const InputItem = styled.input`
+  display: block;
   flex-basis: calc(100% - 57px);
+  height: 38px;
+  box-sizing: border-box;
   padding: 0 0 0 15px;
   border: 1px solid;
+  border-radius: 0;
   border-color: ${(props) => props.theme.colors.borderColor};
   font-family: 'Roboto', sans-serif;
   color: ${(props) => props.theme.colors.inputFontColor};

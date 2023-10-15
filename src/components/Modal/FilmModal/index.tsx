@@ -23,7 +23,7 @@ export const FilmModal = ({filmId, handleModalClick}: IFilmModal) => {
         {traillerURL && !isFetching && <YouTubeTrailerPlayer trailerKey={traillerURL} />}
       </Modal>
       <Button isActive={!!filmId} type='closeButton' callBack={handleModalClick}>
-        <X strokeWidth={2.25} />
+        <X height={26} width={26} strokeWidth={2.25} />
       </Button>
     </>
   )
