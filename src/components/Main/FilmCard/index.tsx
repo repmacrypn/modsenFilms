@@ -1,5 +1,4 @@
-import noPosterImage from '@/assets/images/noPosterImage.png'
-import noPosterPreview from '@/assets/images/noPosterPreview.png'
+import {getImagePath} from '@/utils/helpers/getImagePath'
 
 import {IFilmCard} from './interface'
 
@@ -15,23 +14,9 @@ import {
 export const FilmCard = ({film, handleFilmClick}: IFilmCard) => {
   return (
     <FilmWrapper onClick={() => handleFilmClick(film.id)}>
-      <FilmImage
-        alt='film preview'
-        src={
-          film.backdrop_path
-            ? `https://image.tmdb.org/t/p/w780${film.backdrop_path}`
-            : noPosterImage
-        }
-      />
+      <FilmImage alt='film preview' src={getImagePath(film.backdrop_path, 'poster')} />
       <FilmInfoWrapper>
-        <AvatarPhoto
-          alt='avatar'
-          src={
-            film.backdrop_path
-              ? `https://image.tmdb.org/t/p/w780${film.backdrop_path}`
-              : noPosterPreview
-          }
-        />
+        <AvatarPhoto alt='avatar' src={getImagePath(film.backdrop_path, 'preview')} />
         <div>
           <FilmName>{film.title || "Film Name wasn't found"}</FilmName>
           <FilmAuthorYear>
