@@ -6,7 +6,7 @@ import {GenreValue} from '@/types/genres.enum'
 interface InitialState {
   films: Film[]
   title: string
-  genre: GenreValue
+  genre: GenreValue | null
   page: number
 }
 
@@ -24,7 +24,7 @@ export const filmsSlice = createSlice({
     addFilms: (state, action: PayloadAction<Film[]>) => {
       state.films = state.films.concat(action.payload)
     },
-    setGenre: (state, action: PayloadAction<GenreValue>) => {
+    setGenre: (state, action: PayloadAction<GenreValue | null>) => {
       state.genre = action.payload
     },
     setTitle: (state, action: PayloadAction<string>) => {
@@ -32,6 +32,9 @@ export const filmsSlice = createSlice({
     },
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload
+    },
+    clearFilms: (state) => {
+      state.films = initialState.films
     },
     clearFilters: (state) => {
       state.title = initialState.title
@@ -42,6 +45,7 @@ export const filmsSlice = createSlice({
   }
 })
 
-export const {setGenre, setTitle, setPage, addFilms, clearFilters} = filmsSlice.actions
+export const {setGenre, setTitle, setPage, addFilms, clearFilters, clearFilms} =
+  filmsSlice.actions
 
 export const filmsReducer = filmsSlice.reducer

@@ -1,8 +1,16 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useState, useMemo} from 'react'
 
-import {useFetchFilmsQuery} from '@/store/services/filmsService'
+import {
+  useFetchFilmsByGenreQuery,
+  useFetchFilmsByTitleQuery
+} from '@/store/services/filmsService'
 import {useAppDispatch, useAppSelector} from '@/hooks/useAppHooks'
-import {selectFilms, selectGenre, selectPage} from '@/store/selectors/filmsSelectors'
+import {
+  selectFilms,
+  selectGenre,
+  selectPage,
+  selectTitle
+} from '@/store/selectors/filmsSelectors'
 import {addFilms, setPage} from '@/store/slice/filmsSlice'
 
 export const useFilmsControl = () => {
@@ -10,31 +18,48 @@ export const useFilmsControl = () => {
 
   const page = useAppSelector(selectPage)
   const genre = useAppSelector(selectGenre)
+  const query = useAppSelector(selectTitle)
   const filmsList = useAppSelector(selectFilms)
 
-  const [selectedFilmId, setSelectedFilmId] = useState<number | null>(null)
+  const {
+    data: filmsByGenre,
+    isLoading: isLoadingGenre,
+    currentData: currentFilmsByGenre,
+    isFetching: isFetchingGenre,
+    error: errorGenre
+  } = useFetchFilmsByGenreQuery({page, genre}, {skip: !genre})
 
-  const {data: films, isLoading, isFetching, error} = useFetchFilmsQuery({page, genre})
+  const {
+    data: filmsByQuery,
+    isLoading: isLoadingQuery,
+    isFetching: isFetchingQuery,
+    error: errorQuery
+  } = useFetchFilmsByTitleQuery({page, query}, {skip: !query})
 
-  useEffect(() => {
-    const currentFilms = films?.results
+  const error = errorGenre || errorQuery
+  const isFetching = isFetchingGenre || isFetchingQuery
+  const isLoading = isLoadingGenre || isLoadingQuery
 
-    if (currentFilms) {
-      dispatch(addFilms(currentFilms))
-    }
-  }, [films, dispatch])
+  const skeletonFilmsArray = useMemo(() => new Array(20).fill({}), [isFetching])
+  let films
+
+  if (genre) films = filmsByGenre
+  if (query) films = filmsByQuery
 
   const handleButtonClick = () => {
     dispatch(setPage(page + 1))
   }
 
-  const handleFilmClick = (filmId: number) => {
-    setSelectedFilmId(filmId)
-  }
+  useEffect(() => {
+    let currentFilms
 
-  const handleModalCloseClick = () => {
-    setSelectedFilmId(null)
-  }
+    if (genre && currentFilmsByGenre) currentFilms = filmsByGenre?.results
+    if (query) currentFilms = filmsByQuery?.results
+
+    if (currentFilms) {
+      dispatch(addFilms(currentFilms))
+    }
+  }, [filmsByGenre, filmsByQuery, genre, dispatch])
 
   return {
     page,
@@ -43,9 +68,7 @@ export const useFilmsControl = () => {
     isLoading,
     isFetching,
     error,
-    selectedFilmId,
-    handleButtonClick,
-    handleFilmClick,
-    handleModalCloseClick
+    skeletonFilmsArray,
+    handleButtonClick
   }
 }

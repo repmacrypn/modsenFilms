@@ -23,7 +23,12 @@ export interface Film {
   vote_count: number
 }
 
-export interface FilmQueryParams {
+export interface FilmsByGenreParams {
   page: number
-  genre: GenreValue
+  genre: GenreValue | null
+}
+
+export interface FilmsByQueryParams {
+  page: number
+  query: string
 }
