@@ -1,13 +1,11 @@
-import {useMemo} from 'react'
-
 import {Button} from '@/components/Button'
 import {SkeletonFilmsLoader} from '@/components/Loader/SkeletonLoader'
 import {FilmCard} from '@/components/Main/FilmCard/index'
 import {useFilmsControl} from '@/hooks/useFilmsControl'
 import {FilmModal} from '@/components/Modal/FilmModal'
+import {useFilmModalControl} from '@/hooks/useFilmModalControl'
 
 import {ErrorText} from '@/components/ErrorBoundary/ErrorFallback/styled'
-
 import {Container} from './styled'
 
 export const FilmsList = () => {
@@ -18,23 +16,22 @@ export const FilmsList = () => {
     isLoading,
     isFetching,
     error,
-    selectedFilmId,
-    handleButtonClick,
-    handleFilmClick,
-    handleModalCloseClick
+    skeletonFilmsArray,
+    handleButtonClick
   } = useFilmsControl()
 
-  const skeletonFilmsArray = useMemo(() => new Array(20).fill({}), [isFetching])
+  const {handleFilmClick, handleModalCloseClick, selectedFilmId} = useFilmModalControl()
 
   return (
     <>
+      {error && <ErrorText>Oops, something went wrong...</ErrorText>}
       {error && error.code === 'ERR_NETWORK' && (
         <ErrorText>
           Unable to load films. Please try to turn on VPN and reload the page...
         </ErrorText>
       )}
       {!error && films?.results.length === 0 && !isLoading && (
-        <ErrorText>There are no films</ErrorText>
+        <ErrorText>There are no films on such request...</ErrorText>
       )}
       <Container>
         {filmsList.map((f) => (
