@@ -36,6 +36,10 @@ export const useSearchControl = () => {
     if (event.key === 'Enter') handleSearchButtonClick()
   }
 
+  const onInputFocus = () => {
+    if (searchValue.length > 0) setIsHintModalOpen(true)
+  }
+
   useEffect(() => {
     setSeatchValue(initialTilteValue)
   }, [initialTilteValue])
@@ -47,6 +51,7 @@ export const useSearchControl = () => {
     onKeyUp,
     onSearchChange,
     setIsHintModalOpen,
-    handleSearchButtonClick
+    handleSearchButtonClick,
+    onInputFocus
   }
 }

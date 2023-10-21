@@ -1,16 +1,21 @@
+import {useRef} from 'react'
 import {Search} from 'tabler-icons-react'
 import {useTheme} from 'styled-components'
 
 import {Button} from '@/components/Button/index'
 import {useSearchControl} from '@/hooks/useSearchControl'
 import {HintModal} from '@/components/SearchField/HintModal'
+import {useOutsideClick} from '@/hooks/useOutsideClick'
 
 import {ITheme} from '@/types/theme.interface'
 
-import {Container, InputItem} from './styled'
+import {Container, Wrapper, InputItem} from './styled'
 
 export const SearchField = () => {
   const theme = useTheme() as ITheme
+  const hintModalNode = useRef<HTMLDivElement>(null)
+
+  useOutsideClick(hintModalNode, () => setIsHintModalOpen(false))
 
   const {
     searchValue,
@@ -19,18 +24,23 @@ export const SearchField = () => {
     onKeyUp,
     onSearchChange,
     setIsHintModalOpen,
-    handleSearchButtonClick
+    handleSearchButtonClick,
+    onInputFocus
   } = useSearchControl()
 
   return (
     <>
       <Container>
-        <InputItem
-          onKeyUp={onKeyUp}
-          value={searchValue}
-          onChange={onSearchChange}
-          placeholder='Search'
-        />
+        <Wrapper ref={hintModalNode}>
+          <InputItem
+            onFocus={onInputFocus}
+            onKeyUp={onKeyUp}
+            value={searchValue}
+            onChange={onSearchChange}
+            placeholder='Search'
+          />
+          {isHintModalOpen && <HintModal searchValue={debouncedSearchValue} />}
+        </Wrapper>
         <Button callBack={handleSearchButtonClick} type='searchButton'>
           <Search
             style={{color: theme.colors.mainFont}}
@@ -40,12 +50,6 @@ export const SearchField = () => {
           />
         </Button>
       </Container>
-      {isHintModalOpen && (
-        <HintModal
-          setIsHintModalOpen={setIsHintModalOpen}
-          searchValue={debouncedSearchValue}
-        />
-      )}
     </>
   )
 }
