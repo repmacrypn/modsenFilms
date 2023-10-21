@@ -20,7 +20,7 @@ export const MenuContent = styled.div<{isOpen: boolean}>`
   height: 100vh;
   width: 100%;
   max-width: 420px;
-  z-index: 6;
+  z-index: 10;
   box-shadow: 4px 0 20px 0 ${(props) => props.theme.colors.boxShadow};
   color: ${(props) => props.theme.colors.mainFont};
   background-color: ${(props) => props.theme.colors.mainBackColor};

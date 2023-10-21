@@ -8,7 +8,7 @@ export const Container = styled.div<{isOpen: boolean}>`
     position: relative;
     top: 2px;
     cursor: pointer;
-    z-index: 7;
+    z-index: 11;
     background: transparent;
   }
 
@@ -18,7 +18,7 @@ export const Container = styled.div<{isOpen: boolean}>`
     height: 3px;
     background-color: ${(props) => props.theme.colors.mainFont};
     margin: 5px 0;
-    z-index: 7;
+    z-index: 12;
     transition: all 0.3s linear;
 
     :first-child {

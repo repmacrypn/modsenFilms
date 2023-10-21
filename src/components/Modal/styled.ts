@@ -11,7 +11,7 @@ export const ModalWrapper = styled.div<{isActive: boolean}>`
   bottom: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 3;
+  z-index: 20;
   pointer-events: ${({isActive}) => (isActive ? 'all' : 'none')};
   opacity: ${({isActive}) => (isActive ? 1 : 0)};
   transition: 0.5s;

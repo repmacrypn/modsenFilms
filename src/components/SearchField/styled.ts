@@ -7,15 +7,20 @@ export const Container = styled.div`
   width: 100%;
   height: 38px;
 
-  @media (max-width: 882px) {
+  @media (max-width: 876px) {
     order: 1;
     margin: 15px auto 0;
   }
 `
 
+export const Wrapper = styled.div`
+  flex-basis: calc(100% - 57px);
+  height: 38px;
+`
+
 export const InputItem = styled.input`
   display: block;
-  flex-basis: calc(100% - 57px);
+  width: 100%;
   height: 38px;
   box-sizing: border-box;
   padding: 0 0 0 15px;
