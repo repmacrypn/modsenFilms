@@ -24,23 +24,25 @@ export const HintModal = ({searchValue}: IHintModal) => {
   }
 
   return (
-    <Container>
-      {isFetching && <Loader />}
-      {error && <ErrorText>Oops, something went wrong...</ErrorText>}
-      {currentFilmsByQuery &&
-        filmsByQuery?.results.map((f) => (
-          <HintFilmCard
-            key={f.id}
-            handleSearchedFilmClick={handleSearchedFilmClick}
-            film={f}
-          />
-        ))}
-      {currentFilmsByQuery && !isFetching && filmsByQuery?.results && (
-        <TotalFilmsCount>
-          Total films count: {filmsByQuery?.total_results}
-        </TotalFilmsCount>
-      )}
+    <>
+      <Container>
+        {isFetching && <Loader />}
+        {error && <ErrorText>Oops, something went wrong...</ErrorText>}
+        {currentFilmsByQuery &&
+          filmsByQuery?.results.map((f) => (
+            <HintFilmCard
+              key={f.id}
+              handleSearchedFilmClick={handleSearchedFilmClick}
+              film={f}
+            />
+          ))}
+        {currentFilmsByQuery && !isFetching && filmsByQuery?.results && (
+          <TotalFilmsCount>
+            Total films count: {filmsByQuery?.total_results}
+          </TotalFilmsCount>
+        )}
+      </Container>
       <FilmModal handleModalClick={handleModalCloseClick} filmId={selectedFilmId} />
-    </Container>
+    </>
   )
 }

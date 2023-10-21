@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
   display: flex;
   justify-content: flex-start;
+  gap: 0;
   max-width: 627px;
   width: 100%;
   height: 38px;
@@ -24,6 +25,7 @@ export const InputItem = styled.input`
   height: 38px;
   box-sizing: border-box;
   padding: 0 0 0 15px;
+  margin: 0;
   border: 1px solid;
   border-radius: 0;
   border-color: ${(props) => props.theme.colors.borderColor};

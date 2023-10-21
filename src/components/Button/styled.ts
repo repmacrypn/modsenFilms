@@ -96,8 +96,9 @@ export const CloseButton = styled.button<{isActive: boolean}>`
   border: none;
   color: black;
   background-color: #f0f0f0;
-  font-size: 22px;
-  font-weight: 500;
+  /* font-size: 22px;
+  font-weight: 500; */
+  line-height: 26px;
   transition: all 0.3s ease;
 
   ${({isActive}) =>
