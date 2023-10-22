@@ -1,3 +1,5 @@
+import {memo} from 'react'
+
 import {AppLoader} from '@/components/Loader/AppLoader'
 import {Modal} from '@/components/Modal/index'
 import {getYouTubeTrailerKey} from '@/utils/helpers/getYouTubeTrailerKey'
@@ -6,7 +8,7 @@ import {YouTubeTrailerPlayer} from '@/components/YouTubeTrailerPlayer'
 
 import {IFilmModal} from './interface'
 
-export const FilmModal = ({filmId, handleModalClick}: IFilmModal) => {
+export const FilmModal = memo(({filmId, handleModalClick}: IFilmModal) => {
   const {data: filmTrailerResponse, isFetching} = useFetchFilmTrailerQuery(filmId!, {
     skip: !filmId
   })
@@ -19,4 +21,4 @@ export const FilmModal = ({filmId, handleModalClick}: IFilmModal) => {
       {traillerURL && !isFetching && <YouTubeTrailerPlayer trailerKey={traillerURL} />}
     </Modal>
   )
-}
+})

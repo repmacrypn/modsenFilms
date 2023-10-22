@@ -1,8 +1,10 @@
+import {memo} from 'react'
+
 import {IButton} from './interface'
 
 import {CategoriesButton, SearchButton, ShowMoreButton, CloseButton} from './styled'
 
-export const Button = ({callBack, type, children, isActive}: IButton) => {
+export const Button = memo(({callBack, type, children, isActive}: IButton) => {
   let button
 
   switch (type) {
@@ -10,6 +12,7 @@ export const Button = ({callBack, type, children, isActive}: IButton) => {
       button = <SearchButton onClick={callBack}>{children}</SearchButton>
       break
     }
+
     case 'categoriesButton': {
       button = (
         <CategoriesButton isActive={!!isActive} onClick={callBack}>
@@ -18,6 +21,7 @@ export const Button = ({callBack, type, children, isActive}: IButton) => {
       )
       break
     }
+
     case 'showMoreButton': {
       button = (
         <ShowMoreButton disabled={isActive} onClick={callBack}>
@@ -41,4 +45,4 @@ export const Button = ({callBack, type, children, isActive}: IButton) => {
   }
 
   return button
-}
+})

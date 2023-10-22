@@ -1,4 +1,4 @@
-import {useRef} from 'react'
+import {useRef, useMemo} from 'react'
 import {Search} from 'tabler-icons-react'
 import {useTheme} from 'styled-components'
 
@@ -14,6 +14,18 @@ import {Container, Wrapper, InputItem} from './styled'
 export const SearchField = () => {
   const theme = useTheme() as ITheme
   const hintModalNode = useRef<HTMLDivElement>(null)
+
+  const searchIcon = useMemo(
+    () => (
+      <Search
+        style={{color: theme.colors.mainFont}}
+        width={17}
+        height={16}
+        strokeWidth={2}
+      />
+    ),
+    [theme]
+  )
 
   useOutsideClick(hintModalNode, () => setIsHintModalOpen(false))
 
@@ -42,12 +54,7 @@ export const SearchField = () => {
           {isHintModalOpen && <HintModal searchValue={debouncedSearchValue} />}
         </Wrapper>
         <Button callBack={handleSearchButtonClick} type='searchButton'>
-          <Search
-            style={{color: theme.colors.mainFont}}
-            width={17}
-            height={16}
-            strokeWidth={2}
-          />
+          {searchIcon}
         </Button>
       </Container>
     </>

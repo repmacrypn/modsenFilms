@@ -1,4 +1,4 @@
-import {useEffect, useState, useMemo} from 'react'
+import {useEffect, useCallback, useMemo} from 'react'
 
 import {
   useFetchFilmsByGenreQuery,
@@ -46,9 +46,9 @@ export const useFilmsControl = () => {
   if (genre) films = filmsByGenre
   if (query) films = filmsByQuery
 
-  const handleButtonClick = () => {
+  const handleButtonClick = useCallback(() => {
     dispatch(setPage(page + 1))
-  }
+  }, [dispatch])
 
   useEffect(() => {
     let currentFilms

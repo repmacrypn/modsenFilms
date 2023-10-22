@@ -1,4 +1,4 @@
-import {useState, useEffect, KeyboardEvent} from 'react'
+import {useState, useEffect, KeyboardEvent, useCallback} from 'react'
 
 import {useDebounce} from '@/hooks/useDebounce'
 import {useAppDispatch, useAppSelector} from '@/hooks/useAppHooks'
@@ -22,7 +22,7 @@ export const useSearchControl = () => {
     else setIsHintModalOpen(false)
   }
 
-  const handleSearchButtonClick = () => {
+  const handleSearchButtonClick = useCallback(() => {
     if (searchValue.length > 0) {
       setIsHintModalOpen(false)
       dispatch(clearFilms())
@@ -30,7 +30,7 @@ export const useSearchControl = () => {
       dispatch(setTitle(searchValue))
       dispatch(setGenre(null))
     }
-  }
+  }, [searchValue, dispatch])
 
   const onKeyUp = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') handleSearchButtonClick()

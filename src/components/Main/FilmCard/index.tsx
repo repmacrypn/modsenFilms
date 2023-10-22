@@ -1,3 +1,5 @@
+import {memo} from 'react'
+
 import {getImagePath} from '@/utils/helpers/getImagePath'
 
 import {IFilmCard} from './interface'
@@ -11,7 +13,7 @@ import {
   FilmWrapper
 } from './styled'
 
-export const FilmCard = ({film, handleFilmClick}: IFilmCard) => {
+export const FilmCard = memo(({film, handleFilmClick}: IFilmCard) => {
   return (
     <FilmWrapper onClick={() => handleFilmClick(film.id)}>
       <FilmImage alt='film preview' src={getImagePath(film.backdrop_path, 'poster')} />
@@ -26,4 +28,4 @@ export const FilmCard = ({film, handleFilmClick}: IFilmCard) => {
       </FilmInfoWrapper>
     </FilmWrapper>
   )
-}
+})

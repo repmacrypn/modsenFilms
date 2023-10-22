@@ -1,6 +1,8 @@
+import {memo} from 'react'
+
 import {AvatarLoader, ContentLoader, FilmCardLoader, PreviewLoader} from './styled'
 
-export const SkeletonFilmsLoader = () => {
+export const SkeletonFilmsLoader = memo(() => {
   return (
     <FilmCardLoader>
       <PreviewLoader>
@@ -10,4 +12,4 @@ export const SkeletonFilmsLoader = () => {
       </PreviewLoader>
     </FilmCardLoader>
   )
-}
+})

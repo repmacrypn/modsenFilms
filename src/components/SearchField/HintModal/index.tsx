@@ -1,3 +1,5 @@
+import {memo} from 'react'
+
 import {useFetchFilmsByTitleQuery} from '@/store/services/filmsService'
 import {Loader} from '@/components/Loader/AppLoader/styled'
 import {useFilmModalControl} from '@/hooks/useFilmModalControl'
@@ -9,7 +11,7 @@ import {IHintModal} from './interface'
 
 import {Container, TotalFilmsCount} from './styled'
 
-export const HintModal = ({searchValue}: IHintModal) => {
+export const HintModal = memo(({searchValue}: IHintModal) => {
   const {
     data: filmsByQuery,
     isFetching,
@@ -19,10 +21,6 @@ export const HintModal = ({searchValue}: IHintModal) => {
 
   const {handleFilmClick, handleModalCloseClick, selectedFilmId} = useFilmModalControl()
 
-  const handleSearchedFilmClick = (filmId: number) => {
-    handleFilmClick(filmId)
-  }
-
   return (
     <>
       <Container>
@@ -30,11 +28,7 @@ export const HintModal = ({searchValue}: IHintModal) => {
         {error && <ErrorText>Oops, something went wrong...</ErrorText>}
         {currentFilmsByQuery &&
           filmsByQuery?.results.map((f) => (
-            <HintFilmCard
-              key={f.id}
-              handleSearchedFilmClick={handleSearchedFilmClick}
-              film={f}
-            />
+            <HintFilmCard key={f.id} handleSearchedFilmClick={handleFilmClick} film={f} />
           ))}
         {currentFilmsByQuery && !isFetching && filmsByQuery?.results && (
           <TotalFilmsCount>
@@ -45,4 +39,4 @@ export const HintModal = ({searchValue}: IHintModal) => {
       <FilmModal handleModalClick={handleModalCloseClick} filmId={selectedFilmId} />
     </>
   )
-}
+})
