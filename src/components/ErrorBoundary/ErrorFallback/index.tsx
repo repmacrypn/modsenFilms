@@ -1,10 +1,10 @@
-import {ReactNode} from 'react'
-
 import {Button} from '@/components/Button'
+
+import {IErrorFallback} from './interface'
 
 import {ErrorText, Container} from './styled'
 
-export const ErrorFallback = ({children}: {children: ReactNode}) => {
+export const ErrorFallback = ({children}: IErrorFallback) => {
   const handlerClick = () => {
     location.reload()
   }

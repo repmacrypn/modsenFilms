@@ -30,7 +30,7 @@ export const CategoriesButton = styled.button<{isActive: boolean}>`
 `
 
 export const SearchButton = styled.button`
-  flex-basis: 59px;
+  flex-basis: 57px;
   height: 100%;
   border: 1px solid;
   border-color: ${(props) => props.theme.colors.borderColor};
