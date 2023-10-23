@@ -15,7 +15,7 @@ export const Container = styled.div`
 `
 
 export const Wrapper = styled.div`
-  flex-basis: calc(100% - 57px);
+  width: calc(100% - 57px);
   height: 38px;
 `
 

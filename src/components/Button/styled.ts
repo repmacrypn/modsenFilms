@@ -18,6 +18,7 @@ export const CategoriesButton = styled.button<{isActive: boolean}>`
 
   &:active {
     transform: scale(0.9);
+    transition: all 0.3s ease;
   }
 
   ${({isActive}) =>
@@ -30,8 +31,10 @@ export const CategoriesButton = styled.button<{isActive: boolean}>`
 `
 
 export const SearchButton = styled.button`
-  flex-basis: 57px;
+  width: 57px;
   height: 100%;
+  margin: 0;
+  box-sizing: border-box;
   border: 1px solid;
   border-color: ${(props) => props.theme.colors.borderColor};
   background-color: ${(props) => props.theme.colors.searchButBackColor};

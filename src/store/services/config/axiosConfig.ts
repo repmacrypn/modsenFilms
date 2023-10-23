@@ -1,11 +1,13 @@
 import axios, {AxiosError, AxiosRequestConfig} from 'axios'
 
+const API_URL = process.env.REACT_APP_API_URL
+const API_KEY = process.env.REACT_APP_API_KEY
+
 const instance = axios.create({
-  baseURL: 'https://api.themoviedb.org/3/',
+  baseURL: API_URL,
   headers: {
     accept: 'application/json',
-    Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyOTYyNGUyN2M4YWJmZTAzOGExNmQ5ODgzYTNjMjE5YyIsInN1YiI6IjY1MTQ1MDg0YTE5OWE2MDBlMWZhNTNiOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.BvbcztnAzpmccecSOLA7rdYoqneM0rV62a-cS8mYmpU'
+    Authorization: `Bearer ${API_KEY}`
   }
 })
 

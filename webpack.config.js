@@ -1,6 +1,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
+const {DefinePlugin} = require('webpack')
+const dotenv = require('dotenv-webpack')
+
 module.exports = {
   entry: path.resolve(__dirname, 'src/index.tsx'),
   devtool: 'inline-source-map',
@@ -36,6 +39,9 @@ module.exports = {
     port: 3000
   },
   resolve: {
+    fallback: {
+      process: require.resolve('process/browser')
+    },
     plugins: [
       new TsconfigPathsPlugin({
         configFile: path.join(__dirname, './tsconfig.json')
@@ -48,7 +54,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      favicon: path.join(__dirname, 'public', 'favicon.ico'),
       template: path.join(__dirname, 'public', 'index.html')
-    })
+    }),
+    new dotenv()
   ]
 }
