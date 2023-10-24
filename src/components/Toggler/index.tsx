@@ -17,8 +17,8 @@ export const Toggler = () => {
   }, [theme])
 
   return (
-    <Container onClick={handleToggleChange}>
-      <ToggleItem themeValue={theme} />
+    <Container data-testid='togglerWrapper' onClick={handleToggleChange}>
+      <ToggleItem data-testid='toggler' themeValue={theme} />
     </Container>
   )
 }
