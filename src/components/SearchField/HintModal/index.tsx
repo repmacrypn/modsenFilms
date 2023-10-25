@@ -23,7 +23,7 @@ export const HintModal = memo(({searchValue}: IHintModal) => {
 
   return (
     <>
-      <Container>
+      <Container data-testid='hintModal'>
         {isFetching && <Loader />}
         {error && <ErrorText>Oops, something went wrong...</ErrorText>}
         {currentFilmsByQuery &&

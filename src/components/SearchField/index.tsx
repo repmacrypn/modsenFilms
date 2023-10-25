@@ -6,7 +6,6 @@ import {Button} from '@/components/Button/index'
 import {useSearchControl} from '@/hooks/useSearchControl'
 import {HintModal} from '@/components/SearchField/HintModal'
 import {useOutsideClick} from '@/hooks/useOutsideClick'
-
 import {ITheme} from '@/types/theme.interface'
 
 import {Container, Wrapper, InputItem} from './styled'
@@ -41,22 +40,21 @@ export const SearchField = () => {
   } = useSearchControl()
 
   return (
-    <>
-      <Container>
-        <Wrapper ref={hintModalNode}>
-          <InputItem
-            onFocus={onInputFocus}
-            onKeyUp={onKeyUp}
-            value={searchValue}
-            onChange={onSearchChange}
-            placeholder='Search'
-          />
-          {isHintModalOpen && <HintModal searchValue={debouncedSearchValue} />}
-        </Wrapper>
-        <Button callBack={handleSearchButtonClick} type='searchButton'>
-          {searchIcon}
-        </Button>
-      </Container>
-    </>
+    <Container data-testid='searchField'>
+      <Wrapper ref={hintModalNode}>
+        <InputItem
+          data-testid='searchInput'
+          onFocus={onInputFocus}
+          onKeyUp={onKeyUp}
+          value={searchValue}
+          onChange={onSearchChange}
+          placeholder='Search'
+        />
+        {isHintModalOpen && <HintModal searchValue={debouncedSearchValue} />}
+      </Wrapper>
+      <Button callBack={handleSearchButtonClick} type='searchButton'>
+        {searchIcon}
+      </Button>
+    </Container>
   )
 }

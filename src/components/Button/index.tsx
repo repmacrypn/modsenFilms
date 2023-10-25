@@ -9,7 +9,11 @@ export const Button = memo(({callBack, type, children, isActive}: IButton) => {
 
   switch (type) {
     case 'searchButton': {
-      button = <SearchButton onClick={callBack}>{children}</SearchButton>
+      button = (
+        <SearchButton data-testid='searchButton' onClick={callBack}>
+          {children}
+        </SearchButton>
+      )
       break
     }
 
