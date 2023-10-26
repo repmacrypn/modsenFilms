@@ -21,7 +21,7 @@ export const Genres = () => {
   }
 
   return (
-    <GenresWrapper>
+    <GenresWrapper data-testid='genres'>
       {genres.map((g) => (
         <Button
           type='categoriesButton'
