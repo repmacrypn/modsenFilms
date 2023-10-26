@@ -33,7 +33,7 @@ export const FilmsList = () => {
       {!error && films?.results.length === 0 && !isLoading && (
         <ErrorText>There are no films on such request...</ErrorText>
       )}
-      <Container>
+      <Container data-testid='filmsList'>
         {filmsList.map((f) => (
           <FilmCard handleFilmClick={handleFilmClick} key={f.id} film={f} />
         ))}

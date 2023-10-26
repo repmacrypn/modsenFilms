@@ -28,7 +28,11 @@ export const Button = memo(({callBack, type, children, isActive}: IButton) => {
 
     case 'showMoreButton': {
       button = (
-        <ShowMoreButton disabled={isActive} onClick={callBack}>
+        <ShowMoreButton
+          data-testid='showMoreButton'
+          disabled={isActive}
+          onClick={callBack}
+        >
           {children}
         </ShowMoreButton>
       )

@@ -15,7 +15,7 @@ import {
 
 export const FilmCard = memo(({film, handleFilmClick}: IFilmCard) => {
   return (
-    <FilmWrapper onClick={() => handleFilmClick(film.id)}>
+    <FilmWrapper onClick={() => handleFilmClick(film.id)} data-testid='filmCard'>
       <FilmImage alt='film preview' src={getImagePath(film.backdrop_path, 'poster')} />
       <FilmInfoWrapper>
         <AvatarPhoto alt='avatar' src={getImagePath(film.backdrop_path, 'preview')} />
