@@ -14,7 +14,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "outDir": "./dist/",
-    "sourceMap": true,
     "noImplicitAny": true,
     "module": "es6",
     "target": "es5",
@@ -28,5 +27,10 @@
     "**/*.tsx",
     "declare.d.ts"
   ],
-  "exclude": ["node_modules", "build"],
+  "exclude": [
+    "node_modules", 
+    "build",
+    "cypress",
+    "./cypress.config.ts"
+  ],
 }
