@@ -45,7 +45,7 @@ export const Button = memo(({callBack, type, children, isActive}: IButton) => {
 
     case 'closeButton': {
       button = (
-        <CloseButton isActive={!!isActive} onClick={callBack}>
+        <CloseButton data-testid='closeButton' isActive={!!isActive} onClick={callBack}>
           {children}
         </CloseButton>
       )

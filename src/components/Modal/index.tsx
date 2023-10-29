@@ -15,7 +15,7 @@ export const Modal = ({isActive, onModalClick, children}: IModal) => {
   }, [isActive])
 
   return (
-    <ModalWrapper isActive={isActive} onClick={handleModalClose}>
+    <ModalWrapper data-testid='modal' isActive={isActive} onClick={handleModalClose}>
       <ModalContent
         isActive={isActive}
         onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => e.stopPropagation()}
