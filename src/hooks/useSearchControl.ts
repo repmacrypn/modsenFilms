@@ -1,9 +1,9 @@
-import {useState, useEffect, KeyboardEvent, useCallback} from 'react'
+import React, { KeyboardEvent, useCallback, useEffect, useState } from 'react'
 
-import {useDebounce} from '@/hooks/useDebounce'
-import {useAppDispatch, useAppSelector} from '@/hooks/useAppHooks'
-import {clearFilms, setGenre, setPage, setTitle} from '@/store/slice/filmsSlice'
-import {selectTitle} from '@/store/selectors/filmsSelectors'
+import { useAppDispatch, useAppSelector } from '@/hooks/useAppHooks'
+import { useDebounce } from '@/hooks/useDebounce'
+import { selectTitle } from '@/store/selectors/filmsSelectors'
+import { clearFilms, setGenre, setPage, setTitle } from '@/store/slice/filmsSlice'
 
 export const useSearchControl = () => {
   const dispatch = useAppDispatch()
@@ -52,6 +52,6 @@ export const useSearchControl = () => {
     onSearchChange,
     setIsHintModalOpen,
     handleSearchButtonClick,
-    onInputFocus
+    onInputFocus,
   }
 }

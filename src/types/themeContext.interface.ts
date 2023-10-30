@@ -1,4 +1,4 @@
-import {ThemeEnum} from '@/types/themes.enum'
+import { ThemeEnum } from '@/types/themes.enum'
 
 export interface IThemeContext {
   theme: ThemeEnum

@@ -1,15 +1,15 @@
-import styled, {css} from 'styled-components'
+import styled, { css } from 'styled-components'
 
-export const CategoriesButton = styled.button<{isActive: boolean}>`
+export const CategoriesButton = styled.button<{ isActive: boolean }>`
   padding: 7px 26px;
   border-radius: 15px;
   border: 1px solid;
-  border-color: ${({isActive}) => (isActive ? '#000000' : 'rgba(0, 0, 0, 0.1)')};
-  background-color: ${({isActive, theme}) =>
+  border-color: ${({ isActive }) => (isActive ? '#000000' : 'rgba(0, 0, 0, 0.1)')};
+  background-color: ${({ isActive, theme }) =>
     isActive ? theme.colors.categButBackColorActive : theme.colors.categButBackColor};
-  color: ${({isActive, theme}) =>
+  color: ${({ isActive, theme }) =>
     isActive ? theme.colors.categButFontActive : theme.colors.categButFont};
-  cursor: ${({isActive}) => (isActive ? 'default' : 'pointer')};
+  cursor: ${({ isActive }) => (isActive ? 'default' : 'pointer')};
   text-align: center;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
@@ -21,7 +21,7 @@ export const CategoriesButton = styled.button<{isActive: boolean}>`
     transition: all 0.3s ease;
   }
 
-  ${({isActive}) =>
+  ${({ isActive }) =>
     !isActive &&
     css`
       &:hover {
@@ -88,7 +88,7 @@ export const ShowMoreButton = styled.button`
   }
 `
 
-export const CloseButton = styled.button<{isActive: boolean}>`
+export const CloseButton = styled.button<{ isActive: boolean }>`
   display: none;
   position: absolute;
   top: 10px;
@@ -104,7 +104,7 @@ export const CloseButton = styled.button<{isActive: boolean}>`
   line-height: 26px;
   transition: all 0.3s ease;
 
-  ${({isActive}) =>
+  ${({ isActive }) =>
     isActive &&
     css`
       display: flex;

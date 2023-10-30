@@ -1,6 +1,6 @@
-import {socialMedia} from '@/utils/constants/socialMedia'
+import { socialMedia } from '@/utils/constants/socialMedia'
 
-import {MediaImg, MediaLink, SocialMediaWrapper} from './styled'
+import { MediaImg, MediaLink, SocialMediaWrapper } from './styled'
 
 export const SocialMedia = () => {
   return (

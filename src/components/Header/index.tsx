@@ -1,9 +1,9 @@
-import {SearchField} from '@/components/SearchField/index'
-import {Logo} from '@/components/Logo/index'
-import {Toggler} from '@/components/Toggler/index'
-import {Menu} from '@/components/Menu/index'
+import { Logo } from '@/components/Logo'
+import { Menu } from '@/components/Menu'
+import { SearchField } from '@/components/SearchField'
+import { Toggler } from '@/components/Toggler'
 
-import {Container, ThemeWrapper} from './styled'
+import { Container, ThemeWrapper } from './styled'
 
 export const Header = () => {
   return (

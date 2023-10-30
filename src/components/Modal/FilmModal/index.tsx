@@ -1,16 +1,16 @@
-import {memo} from 'react'
+import { memo } from 'react'
 
-import {AppLoader} from '@/components/Loader/AppLoader'
-import {Modal} from '@/components/Modal/index'
-import {getYouTubeTrailerKey} from '@/utils/helpers/getYouTubeTrailerKey'
-import {useFetchFilmTrailerQuery} from '@/store/services/filmsService'
-import {YouTubeTrailerPlayer} from '@/components/YouTubeTrailerPlayer'
+import { AppLoader } from '@/components/Loader/AppLoader'
+import { Modal } from '@/components/Modal'
+import { YouTubeTrailerPlayer } from '@/components/YouTubeTrailerPlayer'
+import { useFetchFilmTrailerQuery } from '@/store/services/filmsService'
+import { getYouTubeTrailerKey } from '@/utils/helpers/getYouTubeTrailerKey'
 
-import {IFilmModal} from './interface'
+import { IFilmModal } from './interface'
 
-export const FilmModal = memo(({filmId, handleModalClick}: IFilmModal) => {
-  const {data: filmTrailerResponse, isFetching} = useFetchFilmTrailerQuery(filmId!, {
-    skip: !filmId
+export const FilmModal = memo(({ filmId, handleModalClick }: IFilmModal) => {
+  const { data: filmTrailerResponse, isFetching } = useFetchFilmTrailerQuery(filmId!, {
+    skip: !filmId,
   })
 
   const traillerURL = getYouTubeTrailerKey(filmTrailerResponse?.results)

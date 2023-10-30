@@ -1,7 +1,7 @@
-import {AboutUs} from '@/components/Footer/AboutUs/index'
-import {SocialMedia} from '@/components/Footer/SocialMedia/index'
+import { AboutUs } from '@/components/Footer/AboutUs'
+import { SocialMedia } from '@/components/Footer/SocialMedia'
 
-import {CompanyRights, Container, FooterWrapper} from './styled'
+import { CompanyRights, Container, FooterWrapper } from './styled'
 
 export const Footer = () => {
   return (

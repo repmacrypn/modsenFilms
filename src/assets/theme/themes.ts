@@ -1,7 +1,7 @@
-import {DefaultTheme} from 'styled-components'
+import { DefaultTheme } from 'styled-components'
 
-import {ThemeEnum} from '@/types/themes.enum'
-import {ITheme} from '@/types/theme.interface'
+import { ITheme } from '@/types/theme.interface'
+import { ThemeEnum } from '@/types/themes.enum'
 
 const baseTheme: ITheme = {
   colors: {
@@ -27,13 +27,13 @@ const baseTheme: ITheme = {
     boxShadow: '#383838',
     skeletonMain: '#ededed',
     skeletonShimmer:
-      'linear-gradient(90deg,rgba(255, 255, 255, 0) 0,rgba(255, 255, 255, 0.2) 20%,rgba(255, 255, 255, 0.5) 60%,rgba(255, 255, 255, 0))'
-  }
+      'linear-gradient(90deg,rgba(255, 255, 255, 0) 0,rgba(255, 255, 255, 0.2) 20%,rgba(255, 255, 255, 0.5) 60%,rgba(255, 255, 255, 0))',
+  },
 }
 
 export const lightTheme: DefaultTheme = {
   ...baseTheme,
-  type: ThemeEnum.light
+  type: ThemeEnum.light,
 }
 
 export const darkTheme: DefaultTheme = {
@@ -64,6 +64,6 @@ export const darkTheme: DefaultTheme = {
     boxShadow: '#c4c4c4',
     skeletonMain: '#3b3b3b',
     skeletonShimmer:
-      'linear-gradient(90deg,rgba(20, 20, 20, 0) 0,rgba(20, 20, 20, 0.2) 20%,rgba(20, 20, 20, 0.5) 60%,rgba(20, 20, 20, 0))'
-  }
+      'linear-gradient(90deg,rgba(20, 20, 20, 0) 0,rgba(20, 20, 20, 0.2) 20%,rgba(20, 20, 20, 0.5) 60%,rgba(20, 20, 20, 0))',
+  },
 }

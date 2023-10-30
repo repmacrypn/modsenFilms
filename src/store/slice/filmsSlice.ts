@@ -1,7 +1,7 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import {Film} from '@/types/films'
-import {GenreValue} from '@/types/genres.enum'
+import { Film } from '@/types/films'
+import { GenreValue } from '@/types/genres.enum'
 
 interface InitialState {
   films: Film[]
@@ -14,7 +14,7 @@ const initialState: InitialState = {
   films: [] as Film[],
   genre: 'All',
   title: '',
-  page: 1
+  page: 1,
 }
 
 export const filmsSlice = createSlice({
@@ -41,11 +41,11 @@ export const filmsSlice = createSlice({
       state.page = initialState.page
       state.films = initialState.films
       state.genre = initialState.genre
-    }
-  }
+    },
+  },
 })
 
-export const {setGenre, setTitle, setPage, addFilms, clearFilters, clearFilms} =
+export const { setGenre, setTitle, setPage, addFilms, clearFilters, clearFilms } =
   filmsSlice.actions
 
 export const filmsReducer = filmsSlice.reducer

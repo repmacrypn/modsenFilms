@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import {website} from '@/utils/constants/aboutUsData'
+import { website } from '@/utils/constants/aboutUsData'
 
 export const AboutUsDataWrapper = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ export const AboutUsDataBlock = styled.div`
 
 export const Link = styled.a.attrs({
   href: website,
-  target: '_blank'
+  target: '_blank',
 })`
   display: block;
   text-decoration: none;

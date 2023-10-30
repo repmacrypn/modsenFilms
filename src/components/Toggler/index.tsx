@@ -1,20 +1,20 @@
-import {useCallback} from 'react'
+import { useCallback } from 'react'
 
-import {setThemeToLocalStorage} from '@/utils/helpers/accessStorage'
-import {ThemeEnum} from '@/types/themes.enum'
-import {useTheme} from '@/hooks/useTheme'
+import { useTheme } from '@/hooks/useTheme'
+import { ThemeEnum } from '@/types/themes.enum'
+import { setThemeToLocalStorage } from '@/utils/helpers/accessStorage'
 
-import {Container, ToggleItem} from './styled'
+import { Container, ToggleItem } from './styled'
 
 export const Toggler = () => {
-  const {theme, setTheme} = useTheme()
+  const { theme, setTheme } = useTheme()
 
   const handleToggleChange = useCallback(() => {
     const rulesTheme = theme === ThemeEnum.light ? ThemeEnum.dark : ThemeEnum.light
 
     setThemeToLocalStorage('theme', rulesTheme)
     setTheme(rulesTheme)
-  }, [theme])
+  }, [theme, setTheme])
 
   return (
     <Container data-testid='togglerWrapper' onClick={handleToggleChange}>

@@ -1,19 +1,19 @@
-import {ReactNode, createContext, useEffect, useMemo, useState} from 'react'
-import {ThemeProvider} from 'styled-components'
+import { createContext, ReactNode, useEffect, useMemo, useState } from 'react'
+import { ThemeProvider } from 'styled-components'
 
-import {IThemeContext} from '@/types/themeContext.interface'
-import {ThemeEnum} from '@/types/themes.enum'
-import {darkTheme, lightTheme} from '@/assets/theme/themes'
-import {getTheme} from '@/utils/helpers/accessStorage'
+import { darkTheme, lightTheme } from '@/assets/theme/themes'
+import { IThemeContext } from '@/types/themeContext.interface'
+import { ThemeEnum } from '@/types/themes.enum'
+import { getTheme } from '@/utils/helpers/accessStorage'
 
 const defaultTheme: IThemeContext = {
   theme: ThemeEnum.light,
-  setTheme: () => {}
+  setTheme: () => {},
 }
 
 export const ThemeContext = createContext(defaultTheme)
 
-export const Theme = ({children}: {children: ReactNode}) => {
+export const Theme = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState(ThemeEnum.light)
   const currentTheme = theme === ThemeEnum.light ? lightTheme : darkTheme
 
@@ -26,7 +26,7 @@ export const Theme = ({children}: {children: ReactNode}) => {
   }, [])
 
   const value = useMemo(() => {
-    return {theme, setTheme}
+    return { theme, setTheme }
   }, [theme, setTheme])
 
   return (

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const FilmWrapper = styled.div<{isFetching?: boolean}>`
+export const FilmWrapper = styled.div<{ isFetching?: boolean }>`
   width: 100%;
   max-width: 332px;
   max-height: 283px;

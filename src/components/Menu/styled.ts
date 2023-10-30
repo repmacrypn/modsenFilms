@@ -8,7 +8,7 @@ export const Container = styled.div`
   }
 `
 
-export const MenuContent = styled.div<{isOpen: boolean}>`
+export const MenuContent = styled.div<{ isOpen: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +24,7 @@ export const MenuContent = styled.div<{isOpen: boolean}>`
   box-shadow: 4px 0 20px 0 ${(props) => props.theme.colors.boxShadow};
   color: ${(props) => props.theme.colors.mainFont};
   background-color: ${(props) => props.theme.colors.mainBackColor};
-  transform: ${({isOpen}) => (isOpen ? 'translateX(0)' : 'translateX(100%)')};
+  transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(100%)')};
   transition: transform 0.3s ease-in-out;
 
   @media (max-width: 420px) {

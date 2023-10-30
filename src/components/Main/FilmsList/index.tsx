@@ -1,12 +1,12 @@
-import {Button} from '@/components/Button'
-import {SkeletonFilmsLoader} from '@/components/Loader/SkeletonLoader'
-import {FilmCard} from '@/components/Main/FilmCard/index'
-import {useFilmsControl} from '@/hooks/useFilmsControl'
-import {FilmModal} from '@/components/Modal/FilmModal'
-import {useFilmModalControl} from '@/hooks/useFilmModalControl'
+import { Button } from '@/components/Button'
+import { ErrorText } from '@/components/ErrorBoundary/ErrorFallback/styled'
+import { SkeletonFilmsLoader } from '@/components/Loader/SkeletonLoader'
+import { FilmCard } from '@/components/Main/FilmCard'
+import { FilmModal } from '@/components/Modal/FilmModal'
+import { useFilmModalControl } from '@/hooks/useFilmModalControl'
+import { useFilmsControl } from '@/hooks/useFilmsControl'
 
-import {ErrorText} from '@/components/ErrorBoundary/ErrorFallback/styled'
-import {Container} from './styled'
+import { Container } from './styled'
 
 export const FilmsList = () => {
   const {
@@ -17,10 +17,10 @@ export const FilmsList = () => {
     isFetching,
     error,
     skeletonFilmsArray,
-    handleButtonClick
+    handleButtonClick,
   } = useFilmsControl()
 
-  const {handleFilmClick, handleModalCloseClick, selectedFilmId} = useFilmModalControl()
+  const { handleFilmClick, handleModalCloseClick, selectedFilmId } = useFilmModalControl()
 
   return (
     <>

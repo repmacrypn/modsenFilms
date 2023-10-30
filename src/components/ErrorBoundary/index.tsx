@@ -1,15 +1,15 @@
-import {Component, ErrorInfo, ReactNode} from 'react'
+import { Component, ErrorInfo, ReactNode } from 'react'
 
-import {IErrorBoundaryProps, IErrorBoundaryState} from './interface'
+import { IErrorBoundaryProps, IErrorBoundaryState } from './interface'
 
 export class ErrorBoundary extends Component<IErrorBoundaryProps, IErrorBoundaryState> {
   constructor(props: IErrorBoundaryProps) {
     super(props)
-    this.state = {hasError: false}
+    this.state = { hasError: false }
   }
 
   static getDerivedStateFromError(): IErrorBoundaryState {
-    return {hasError: true}
+    return { hasError: true }
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
@@ -18,11 +18,10 @@ export class ErrorBoundary extends Component<IErrorBoundaryProps, IErrorBoundary
   }
 
   render(): ReactNode {
-    const {children, fallback} = this.props
+    const { children, fallback } = this.props
+    const { hasError } = this.state
 
-    if (this.state.hasError) {
-      return fallback
-    }
+    if (hasError) return fallback
 
     return children
   }

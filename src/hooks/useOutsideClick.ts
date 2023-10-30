@@ -1,8 +1,8 @@
-import {RefObject, useEffect} from 'react'
+import { RefObject, useEffect } from 'react'
 
 export const useOutsideClick = (
   ref: RefObject<HTMLDivElement>,
-  closeMenu: () => void
+  closeMenu: () => void,
 ) => {
   useEffect(() => {
     const eventListener = (event: MouseEvent) => {

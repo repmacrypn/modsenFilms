@@ -1,12 +1,11 @@
-import {Button} from '@/components/Button'
+import { Button } from '@/components/Button'
 
-import {IErrorFallback} from './interface'
+import { IErrorFallback } from './interface'
+import { Container, ErrorText } from './styled'
 
-import {ErrorText, Container} from './styled'
-
-export const ErrorFallback = ({children}: IErrorFallback) => {
+export const ErrorFallback = ({ children }: IErrorFallback) => {
   const handlerClick = () => {
-    location.reload()
+    window.location.reload()
   }
 
   return (

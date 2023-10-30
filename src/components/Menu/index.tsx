@@ -1,10 +1,10 @@
-import {useRef, useState} from 'react'
+import { useRef, useState } from 'react'
 
-import {useOutsideClick} from '@/hooks/useOutsideClick'
-import {BurgerMenu} from '@/components/BurgerMenu/index'
-import {Toggler} from '@/components/Toggler/index'
+import { BurgerMenu } from '@/components/BurgerMenu'
+import { Toggler } from '@/components/Toggler'
+import { useOutsideClick } from '@/hooks/useOutsideClick'
 
-import {MenuContent, Container} from './styled'
+import { Container, MenuContent } from './styled'
 
 export const Menu = () => {
   const [isOpen, setIsOpen] = useState(false)

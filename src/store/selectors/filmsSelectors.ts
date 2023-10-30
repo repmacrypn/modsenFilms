@@ -1,4 +1,4 @@
-import {RootState} from '@/store/store'
+import { RootState } from '@/store/store'
 
 export const selectFilms = (state: RootState) => state.films.films
 export const selectPage = (state: RootState) => state.films.page

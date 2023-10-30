@@ -1,8 +1,8 @@
-import styled, {createGlobalStyle} from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
-import {ITheme} from '@/types/theme.interface'
+import { ITheme } from '@/types/theme.interface'
 
-export const GlobalStyles = createGlobalStyle<{theme: ITheme}>`
+export const GlobalStyles = createGlobalStyle<{ theme: ITheme }>`
   html, body {
     height: 100%;
     width: 100%;

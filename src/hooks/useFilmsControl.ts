@@ -1,17 +1,17 @@
-import {useEffect, useCallback, useMemo} from 'react'
+import { useCallback, useEffect, useMemo } from 'react'
 
-import {
-  useFetchFilmsByGenreQuery,
-  useFetchFilmsByTitleQuery
-} from '@/store/services/filmsService'
-import {useAppDispatch, useAppSelector} from '@/hooks/useAppHooks'
+import { useAppDispatch, useAppSelector } from '@/hooks/useAppHooks'
 import {
   selectFilms,
   selectGenre,
   selectPage,
-  selectTitle
+  selectTitle,
 } from '@/store/selectors/filmsSelectors'
-import {addFilms, setPage} from '@/store/slice/filmsSlice'
+import {
+  useFetchFilmsByGenreQuery,
+  useFetchFilmsByTitleQuery,
+} from '@/store/services/filmsService'
+import { addFilms, setPage } from '@/store/slice/filmsSlice'
 
 export const useFilmsControl = () => {
   const dispatch = useAppDispatch()
@@ -26,15 +26,15 @@ export const useFilmsControl = () => {
     isLoading: isLoadingGenre,
     currentData: currentFilmsByGenre,
     isFetching: isFetchingGenre,
-    error: errorGenre
-  } = useFetchFilmsByGenreQuery({page, genre}, {skip: !genre})
+    error: errorGenre,
+  } = useFetchFilmsByGenreQuery({ page, genre }, { skip: !genre })
 
   const {
     data: filmsByQuery,
     isLoading: isLoadingQuery,
     isFetching: isFetchingQuery,
-    error: errorQuery
-  } = useFetchFilmsByTitleQuery({page, query}, {skip: !query})
+    error: errorQuery,
+  } = useFetchFilmsByTitleQuery({ page, query }, { skip: !query })
 
   const error = errorGenre || errorQuery
   const isFetching = isFetchingGenre || isFetchingQuery
@@ -69,6 +69,6 @@ export const useFilmsControl = () => {
     isFetching,
     error,
     skeletonFilmsArray,
-    handleButtonClick
+    handleButtonClick,
   }
 }

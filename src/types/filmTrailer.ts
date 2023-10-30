@@ -19,9 +19,9 @@ export interface FilmTrailer {
 export enum TrailerType {
   Teaser = 'Teaser',
   Featurette = 'Featurette',
-  Trailer = 'Trailer'
+  Trailer = 'Trailer',
 }
 
 export enum TrailerSource {
-  YouTube = 'YouTube'
+  YouTube = 'YouTube',
 }

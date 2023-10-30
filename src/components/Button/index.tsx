@@ -1,10 +1,9 @@
-import {memo} from 'react'
+import { memo } from 'react'
 
-import {IButton} from './interface'
+import { IButton } from './interface'
+import { CategoriesButton, CloseButton, SearchButton, ShowMoreButton } from './styled'
 
-import {CategoriesButton, SearchButton, ShowMoreButton, CloseButton} from './styled'
-
-export const Button = memo(({callBack, type, children, isActive}: IButton) => {
+export const Button = memo(({ callBack, type, children, isActive }: IButton) => {
   let button
 
   switch (type) {
@@ -53,7 +52,7 @@ export const Button = memo(({callBack, type, children, isActive}: IButton) => {
     }
 
     default:
-      button = <button>{children}</button>
+      button = <button type='button'>{children}</button>
   }
 
   return button

@@ -1,12 +1,11 @@
-import {Button} from '@/components/Button'
-import {genres} from '@/utils/constants/genres'
-import {useAppDispatch, useAppSelector} from '@/hooks/useAppHooks'
-import {clearFilters, setGenre} from '@/store/slice/filmsSlice'
-import {selectGenre} from '@/store/selectors/filmsSelectors'
+import { Button } from '@/components/Button'
+import { useAppDispatch, useAppSelector } from '@/hooks/useAppHooks'
+import { selectGenre } from '@/store/selectors/filmsSelectors'
+import { clearFilters, setGenre } from '@/store/slice/filmsSlice'
+import { GenreValue } from '@/types/genres.enum'
+import { genres } from '@/utils/constants/genres'
 
-import {GenreValue} from '@/types/genres.enum'
-
-import {GenresWrapper} from './styled'
+import { GenresWrapper } from './styled'
 
 export const Genres = () => {
   const dispatch = useAppDispatch()

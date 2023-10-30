@@ -1,9 +1,9 @@
-import {createApi} from '@reduxjs/toolkit/query/react'
+import { createApi } from '@reduxjs/toolkit/query/react'
 
-import {FilmsByGenreParams, FilmsByQueryParams, FilmsResponse} from '@/types/films'
-import {axiosBaseQuery} from '@/store/services/config/axiosConfig'
-import {Genres} from '@/types/genres.enum'
-import {FilmTrailerResponse} from '@/types/filmTrailer'
+import { axiosBaseQuery } from '@/store/services/config/axiosConfig'
+import { FilmsByGenreParams, FilmsByQueryParams, FilmsResponse } from '@/types/films'
+import { FilmTrailerResponse } from '@/types/filmTrailer'
+import { Genres } from '@/types/genres.enum'
 
 export const filmsApi = createApi({
   reducerPath: 'filmsAPI',
@@ -13,43 +13,43 @@ export const filmsApi = createApi({
 
   endpoints: (builder) => ({
     fetchFilmsByGenre: builder.query<FilmsResponse, FilmsByGenreParams>({
-      query: ({page, genre}) => ({
+      query: ({ page, genre }) => ({
         method: 'GET',
         url: 'discover/movie',
         params: {
           page,
           with_genres: Genres[genre!],
-          include_video: true
-        }
+          include_video: true,
+        },
       }),
-      providesTags: ['films']
+      providesTags: ['films'],
     }),
 
     fetchFilmTrailer: builder.query<FilmTrailerResponse, number>({
       query: (filmId) => ({
         method: 'GET',
-        url: `movie/${filmId}/videos`
+        url: `movie/${filmId}/videos`,
       }),
-      providesTags: (result) => (result ? [{type: 'films', id: result.id}] : ['films'])
+      providesTags: (result) => (result ? [{ type: 'films', id: result.id }] : ['films']),
     }),
 
     fetchFilmsByTitle: builder.query<FilmsResponse, FilmsByQueryParams>({
-      query: ({page, query}) => ({
+      query: ({ page, query }) => ({
         method: 'GET',
-        url: `search/movie`,
+        url: 'search/movie',
         params: {
           page,
-          query
-        }
+          query,
+        },
       }),
       providesTags: (result, err, arg) =>
-        result ? [{type: 'films', id: arg.query}] : ['films']
-    })
-  })
+        result ? [{ type: 'films', id: arg.query }] : ['films'],
+    }),
+  }),
 })
 
 export const {
   useFetchFilmsByGenreQuery,
   useFetchFilmTrailerQuery,
-  useFetchFilmsByTitleQuery
+  useFetchFilmsByTitleQuery,
 } = filmsApi

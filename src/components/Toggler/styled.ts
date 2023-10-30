@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import {ThemeEnum} from '@/types/themes.enum'
+import { ThemeEnum } from '@/types/themes.enum'
 
 export const Container = styled.div`
   position: relative;
@@ -18,7 +18,7 @@ export const Container = styled.div`
   }
 `
 
-export const ToggleItem = styled.div<{themeValue: ThemeEnum}>`
+export const ToggleItem = styled.div<{ themeValue: ThemeEnum }>`
   position: absolute;
   left: -2px;
   top: -1px;
@@ -28,7 +28,7 @@ export const ToggleItem = styled.div<{themeValue: ThemeEnum}>`
   border-color: ${(props) => props.theme.colors.togglerBorderColor};
   border-radius: 50%;
   transform: translateX(
-    ${({themeValue}) => (themeValue === 'lightTheme' ? '0px' : '23px')}
+    ${({ themeValue }) => (themeValue === 'lightTheme' ? '0px' : '23px')}
   );
   transition: transform 0.2s ease;
 `

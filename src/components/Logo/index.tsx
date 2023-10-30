@@ -1,9 +1,9 @@
 import youtube from '@/assets/images/youtube.png'
-import {useAppDispatch, useAppSelector} from '@/hooks/useAppHooks'
-import {clearFilters} from '@/store/slice/filmsSlice'
-import {selectGenre} from '@/store/selectors/filmsSelectors'
+import { useAppDispatch, useAppSelector } from '@/hooks/useAppHooks'
+import { selectGenre } from '@/store/selectors/filmsSelectors'
+import { clearFilters } from '@/store/slice/filmsSlice'
 
-import {LogoImage, LogoTitle, LogoWrapper} from './styled'
+import { LogoImage, LogoTitle, LogoWrapper } from './styled'
 
 export const Logo = () => {
   const dispatch = useAppDispatch()

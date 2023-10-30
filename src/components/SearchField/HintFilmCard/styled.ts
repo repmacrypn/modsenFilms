@@ -22,7 +22,7 @@ export const FilmCard = styled.div`
 
 export const FilmImage = styled.img.attrs((props) => ({
   src: props.src,
-  alt: props.alt
+  alt: props.alt,
 }))`
   align-self: center;
   width: 192px;

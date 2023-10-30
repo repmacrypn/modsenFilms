@@ -6,7 +6,7 @@ export enum Genres {
   Drama = 18,
   Documentary = 99,
   Romance = 10749,
-  Horror = 27
+  Horror = 27,
 }
 
 export type GenreValue = keyof typeof Genres

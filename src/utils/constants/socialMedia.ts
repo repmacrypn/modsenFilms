@@ -7,23 +7,23 @@ export const socialMedia: SocialMedia[] = [
   {
     media: 'linkedIn',
     img: linkedin,
-    url: 'https://www.linkedin.com/company/modsen/'
+    url: 'https://www.linkedin.com/company/modsen/',
   },
   {
     media: 'instagram',
     img: instagram,
-    url: 'https://www.instagram.com/modsencompany/'
+    url: 'https://www.instagram.com/modsencompany/',
   },
   {
     media: 'facebook',
     img: facebook,
-    url: 'https://www.facebook.com/ModsenSoftware'
+    url: 'https://www.facebook.com/ModsenSoftware',
   },
   {
     media: 'twitter',
     img: twitter,
-    url: 'https://twitter.com/modsencompany'
-  }
+    url: 'https://twitter.com/modsencompany',
+  },
 ]
 
 interface SocialMedia {

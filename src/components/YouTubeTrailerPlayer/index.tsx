@@ -1,7 +1,6 @@
-import {TraylerPlayerProps} from './interface'
+import { TraylerPlayerProps } from './interface'
+import { Trailer } from './styled'
 
-import {Trailer} from './styled'
-
-export const YouTubeTrailerPlayer = ({trailerKey}: TraylerPlayerProps) => {
+export const YouTubeTrailerPlayer = ({ trailerKey }: TraylerPlayerProps) => {
   return <Trailer src={trailerKey} />
 }

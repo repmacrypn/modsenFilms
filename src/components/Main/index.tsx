@@ -1,5 +1,5 @@
-import {Genres} from '@/components/Main/Genres/index'
-import {FilmsList} from '@/components/Main/FilmsList/index'
+import { FilmsList } from '@/components/Main/FilmsList'
+import { Genres } from '@/components/Main/Genres'
 
 export const Main = () => {
   return (

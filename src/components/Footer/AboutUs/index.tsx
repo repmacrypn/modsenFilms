@@ -1,4 +1,5 @@
-import {AboutUsDataBlock, AboutUsDataWrapper, Link} from './styled'
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import { AboutUsDataBlock, AboutUsDataWrapper, Link } from './styled'
 
 export const AboutUs = () => {
   return (

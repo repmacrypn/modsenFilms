@@ -1,18 +1,17 @@
-import {useCallback, useMemo} from 'react'
-import {X} from 'tabler-icons-react'
+import React, { useCallback, useMemo } from 'react'
+import { X } from 'tabler-icons-react'
 
-import {Button} from '@/components/Button/'
+import { Button } from '@/components/Button'
 
-import {IModal} from './interface'
+import { IModal } from './interface'
+import { ModalContent, ModalWrapper } from './styled'
 
-import {ModalContent, ModalWrapper} from './styled'
-
-export const Modal = ({isActive, onModalClick, children}: IModal) => {
+export const Modal = ({ isActive, onModalClick, children }: IModal) => {
   const closeIcon = useMemo(() => <X height={25} width={25} strokeWidth={2.25} />, [])
 
   const handleModalClose = useCallback(() => {
     onModalClick(false)
-  }, [isActive])
+  }, [onModalClick])
 
   return (
     <ModalWrapper data-testid='modal' isActive={isActive} onClick={handleModalClose}>

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ModalWrapper = styled.div<{isActive: boolean}>`
+export const ModalWrapper = styled.div<{ isActive: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,20 +12,20 @@ export const ModalWrapper = styled.div<{isActive: boolean}>`
   width: 100vw;
   height: 100vh;
   z-index: 20;
-  pointer-events: ${({isActive}) => (isActive ? 'all' : 'none')};
-  opacity: ${({isActive}) => (isActive ? 1 : 0)};
+  pointer-events: ${({ isActive }) => (isActive ? 'all' : 'none')};
+  opacity: ${({ isActive }) => (isActive ? 1 : 0)};
   transition: 0.5s;
   background-color: rgba(0, 0, 0, 0.4);
   cursor: default;
 `
 
-export const ModalContent = styled.div<{isActive: boolean}>`
+export const ModalContent = styled.div<{ isActive: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 70vw;
   height: 39.25vw;
-  transform: ${({isActive}) => (isActive ? 'scale(1)' : 'scale(0.5)')};
+  transform: ${({ isActive }) => (isActive ? 'scale(1)' : 'scale(0.5)')};
   transition: all 0.5s;
   border-radius: 6px;
   background-color: ${(props) => props.theme.colors.mainBackColor};

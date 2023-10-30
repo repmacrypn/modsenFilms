@@ -1,6 +1,6 @@
-import {memo} from 'react'
+import { memo } from 'react'
 
-import {AvatarLoader, ContentLoader, FilmCardLoader, PreviewLoader} from './styled'
+import { AvatarLoader, ContentLoader, FilmCardLoader, PreviewLoader } from './styled'
 
 export const SkeletonFilmsLoader = memo(() => {
   return (

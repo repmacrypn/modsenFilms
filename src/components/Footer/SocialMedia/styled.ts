@@ -11,7 +11,7 @@ export const SocialMediaWrapper = styled.div`
 
 export const MediaLink = styled.a.attrs((props) => ({
   href: props.href,
-  target: '_blank'
+  target: '_blank',
 }))`
   display: inline-block;
   width: 16px;
@@ -29,7 +29,7 @@ export const MediaLink = styled.a.attrs((props) => ({
 
 export const MediaImg = styled.img.attrs((props) => ({
   alt: props.alt,
-  src: props.src
+  src: props.src,
 }))`
   display: block;
   width: 100%;

@@ -1,4 +1,4 @@
-import {FilmTrailer, TrailerSource, TrailerType} from '@/types/filmTrailer'
+import { FilmTrailer, TrailerSource, TrailerType } from '@/types/filmTrailer'
 
 export const trailerData1: FilmTrailer[] = [
   {
@@ -11,8 +11,8 @@ export const trailerData1: FilmTrailer[] = [
     type: 'Trailer' as TrailerType,
     official: true,
     published_at: '2023-09-27T23:00:33.000Z',
-    id: '6514b9c493bd6900e12c150d'
-  }
+    id: '6514b9c493bd6900e12c150d',
+  },
 ]
 
 export const trailerData2: FilmTrailer[] = [
@@ -26,6 +26,6 @@ export const trailerData2: FilmTrailer[] = [
     type: 'Trailer' as TrailerType,
     official: true,
     published_at: '2023-09-22T20:16:04.000Z',
-    id: '650e0174a9117f00feb1c851'
-  }
+    id: '650e0174a9117f00feb1c851',
+  },
 ]

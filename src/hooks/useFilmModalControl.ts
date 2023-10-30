@@ -1,4 +1,4 @@
-import {useState, useCallback} from 'react'
+import { useCallback, useState } from 'react'
 
 export const useFilmModalControl = () => {
   const [selectedFilmId, setSelectedFilmId] = useState<number | null>(null)
@@ -7,16 +7,16 @@ export const useFilmModalControl = () => {
     (filmId: number) => {
       setSelectedFilmId(filmId)
     },
-    [setSelectedFilmId]
+    [setSelectedFilmId],
   )
 
   const handleModalCloseClick = useCallback(() => {
     setSelectedFilmId(null)
-  }, [selectedFilmId])
+  }, [])
 
   return {
     selectedFilmId,
     handleFilmClick,
-    handleModalCloseClick
+    handleModalCloseClick,
   }
 }

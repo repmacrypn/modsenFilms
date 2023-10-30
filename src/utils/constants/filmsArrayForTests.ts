@@ -1,4 +1,4 @@
-import {Film} from '@/types/films'
+import { Film } from '@/types/films'
 
 export const films: Film[] = [
   {
@@ -8,14 +8,14 @@ export const films: Film[] = [
     id: 951491,
     original_language: 'en',
     overview:
-      "Between the events of 'Saw' and 'Saw II', a sick and desperate John Kramer...",
+      'Between the events of "Saw" and "Saw II", a sick and desperate John Kramer...',
     popularity: 2062.741,
     poster_path: '/aQPeznSu7XDTrrdCtT5eLiu52Yu.jpg',
     release_date: '2023-09-26',
     title: 'Saw X',
     video: false,
     vote_average: 7.3,
-    vote_count: 379
+    vote_count: 379,
   },
   {
     adult: false,
@@ -31,7 +31,7 @@ export const films: Film[] = [
     title: 'Expend4bles',
     video: false,
     vote_average: 6.4,
-    vote_count: 425
+    vote_count: 425,
   },
   {
     adult: false,
@@ -47,6 +47,6 @@ export const films: Film[] = [
     title: 'Mortal Kombat Legends: Cage Match',
     video: false,
     vote_average: 7.4,
-    vote_count: 37
-  }
+    vote_count: 37,
+  },
 ]
