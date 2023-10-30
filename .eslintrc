@@ -41,21 +41,35 @@
     }
   ],
   "rules": {
+    "new-cap": [
+      "error",
+      {
+        "newIsCap": false
+      }
+    ],
     "prettier/prettier": [
       "error",
       {
-        "semi": false,
-        "endOfLine": "off"
+        "endOfLine": "auto"
       }
     ],
-    "quotes": ["error", "single"],
+    "quotes": [
+      "error",
+      "single"
+    ],
     "no-underscore-dangle": "off",
     "jsx-a11y/label-has-associated-control": [
       2,
       {
-        "labelComponents": ["CustomInputLabel"],
-        "labelAttributes": ["label"],
-        "controlComponents": ["CustomInput"],
+        "labelComponents": [
+          "CustomInputLabel"
+        ],
+        "labelAttributes": [
+          "label"
+        ],
+        "controlComponents": [
+          "CustomInput"
+        ],
         "depth": 3
       }
     ],
@@ -76,13 +90,25 @@
       },
       {
         "blankLine": "always",
-        "prev": ["const", "let", "var"],
+        "prev": [
+          "const",
+          "let",
+          "var"
+        ],
         "next": "*"
       },
       {
         "blankLine": "any",
-        "prev": ["const", "let", "var"],
-        "next": ["const", "let", "var"]
+        "prev": [
+          "const",
+          "let",
+          "var"
+        ],
+        "next": [
+          "const",
+          "let",
+          "var"
+        ]
       }
     ],
     "no-shadow": "off",
@@ -96,11 +122,15 @@
       "error",
       {
         "props": true,
-        "ignorePropertyModificationsFor": ["state", "self"]
+        "ignorePropertyModificationsFor": [
+          "state",
+          "self"
+        ]
       }
     ],
     "react/display-name": "off",
     "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
     "react/no-array-index-key": "off",
     "react/require-default-props": "off",
     "react-hooks/rules-of-hooks": "error",
@@ -108,7 +138,10 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [".jsx", ".tsx"]
+        "extensions": [
+          ".jsx",
+          ".tsx"
+        ]
       }
     ],
     "react/function-component-definition": [
@@ -125,15 +158,10 @@
       }
     ],
     "react/prefer-stateless-function": "off",
-    "@typescript-eslint/no-unused-vars": ["warn"],
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/no-magic-numbers": [
-      "warn",
-      {
-        "ignoreEnums": true,
-        "ignore": [0, 1, -1]
-      }
+    "@typescript-eslint/no-unused-vars": [
+      "warn"
     ],
+    "@typescript-eslint/explicit-function-return-type": "off",
     "camelcase": "off",
     "import/no-extraneous-dependencies": [
       "off",
@@ -147,18 +175,30 @@
       "error",
       {
         "groups": [
-          // Packages `react` related packages come first.
-          ["^react", "^styled-components", "^uuid", "^@?\\w"],
-          // Internal packages.
-          ["^(@|components)(/.*|$)"],
-          // Side effect imports.
-          ["^\\u0000"],
-          // Parent imports. Put `..` last.
-          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
-          // Other relative imports. Put same-folder imports and `.` last.
-          ["^\\./(?=.)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
-          // Style imports.
-          ["^.+\\.?(css)$"]
+          [
+            "^react",
+            "^styled-components",
+            "^uuid",
+            "^@?\\w"
+          ],
+          [
+            "^(@|components)(/.*|$)"
+          ],
+          [
+            "^\\u0000"
+          ],
+          [
+            "^\\.\\.(?!/?$)",
+            "^\\.\\./?$"
+          ],
+          [
+            "^\\./(?=.)(?!/?$)",
+            "^\\.(?!/?$)",
+            "^\\./?$"
+          ],
+          [
+            "^.+\\.?(css)$"
+          ]
         ]
       }
     ]
@@ -167,8 +207,15 @@
     "import/resolver": {
       "typescript": {},
       "node": {
-        "paths": ["src"],
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        "paths": [
+          "src"
+        ],
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
       }
     }
   }
