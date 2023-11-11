@@ -23,14 +23,14 @@ export const useSearchControl = () => {
   }
 
   const handleSearchButtonClick = useCallback(() => {
-    if (searchValue.length > 0) {
+    if (searchValue.length > 0 && Boolean(initialTilteValue)) {
       setIsHintModalOpen(false)
       dispatch(clearFilms())
       dispatch(setPage(1))
       dispatch(setTitle(searchValue))
       dispatch(setGenre(null))
     }
-  }, [searchValue, dispatch])
+  }, [searchValue, dispatch, initialTilteValue])
 
   const onKeyUp = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') handleSearchButtonClick()

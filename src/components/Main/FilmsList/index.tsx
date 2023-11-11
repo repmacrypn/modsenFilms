@@ -40,18 +40,15 @@ export const FilmsList = () => {
         {isFetching && skeletonFilmsArray.map((f, i) => <SkeletonFilmsLoader key={i} />)}
         <FilmModal handleModalClick={handleModalCloseClick} filmId={selectedFilmId} />
       </Container>
-      <Button
-        isActive={
-          isLoading ||
-          isFetching ||
-          films?.total_pages === page ||
-          films?.results.length === 0
-        }
-        callBack={handleButtonClick}
-        type='showMoreButton'
-      >
-        Show More
-      </Button>
+      {films && films.total_pages !== page && films.results.length !== 0 && (
+        <Button
+          isActive={isLoading || isFetching}
+          callBack={handleButtonClick}
+          type='showMoreButton'
+        >
+          Show More
+        </Button>
+      )}
     </>
   )
 }

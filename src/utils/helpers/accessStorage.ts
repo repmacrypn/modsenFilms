@@ -7,4 +7,4 @@ export const setThemeToLocalStorage = (key: LsKey, value: ThemeEnum) => {
   localStorage.setItem(key, value)
 }
 
-export const getTheme = () => localStorage.getItem('theme')
+export const getTheme = () => localStorage.getItem('theme') as ThemeEnum

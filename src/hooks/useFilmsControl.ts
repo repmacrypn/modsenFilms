@@ -40,7 +40,7 @@ export const useFilmsControl = () => {
   const isFetching = isFetchingGenre || isFetchingQuery
   const isLoading = isLoadingGenre || isLoadingQuery
 
-  const skeletonFilmsArray = useMemo(() => new Array(20).fill({}), [isFetching])
+  const skeletonFilmsArray = useMemo(() => new Array(20).fill({}), [])
   let films
 
   if (genre) films = filmsByGenre
@@ -48,7 +48,7 @@ export const useFilmsControl = () => {
 
   const handleButtonClick = useCallback(() => {
     dispatch(setPage(page + 1))
-  }, [dispatch])
+  }, [dispatch, page])
 
   useEffect(() => {
     let currentFilms
@@ -59,7 +59,7 @@ export const useFilmsControl = () => {
     if (currentFilms) {
       dispatch(addFilms(currentFilms))
     }
-  }, [filmsByGenre, filmsByQuery, genre, dispatch])
+  }, [filmsByGenre, filmsByQuery, genre, dispatch, currentFilmsByGenre, query])
 
   return {
     page,

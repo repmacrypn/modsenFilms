@@ -3,12 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Film } from '@/types/films'
 import { GenreValue } from '@/types/genres.enum'
 
-interface InitialState {
-  films: Film[]
-  title: string
-  genre: GenreValue | null
-  page: number
-}
+import { InitialState } from './filmsSlice.interface'
 
 const initialState: InitialState = {
   films: [] as Film[],
